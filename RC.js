@@ -12,4 +12,9 @@ window.addEventListener("DOMContentLoaded", function () {
             document.querySelector("#" + event.target.name).style.display = "block"
         })
     }
+    var rulic = document.querySelectorAll(".ruleset")
+    for (var i = 0; i < rulic.length; i++) {
+        rulic[i].addEventListener("click", function rul(event) {
+        })
+    }
 })

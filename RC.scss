@@ -48,3 +48,24 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+.ruleset {
+    color:white;
+    text-align:center;
+}
+#pulldon {
+    background-color: #4BC0F2;
+    transition: top 0.4s;
+    position:absolute;
+    transition-timing-function: ease;
+    top:-10.8vh;
+    width:100vw;
+    height:22vh;
+}
+#pulldon:hover {
+    top:0vh;
+}
+#trugger {
+    width:30vw;
+    height:10vh;
+    margin-left:35vw;
+}
