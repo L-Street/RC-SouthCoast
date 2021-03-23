@@ -1,0 +1,68 @@
+* {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+body {
+  overflow: hidden;
+}
+
+#naf {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: naf;
+  width: 100vw;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "point scale rule";
+}
+
+#pointer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: point;
+  height: 4vh;
+  margin-top: 0.5vh;
+  margin: auto;
+}
+
+#scaler {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: scale;
+  height: 4vh;
+  margin-top: 0.5vh;
+  margin: auto;
+}
+
+#ruler {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: rule;
+  height: 4vh;
+  margin-top: 0.5vh;
+  margin: auto;
+}
+
+.fakepage {
+  overflow-y: scroll;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: fake;
+}
+
+#navpos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  -ms-grid-rows: 95fr 5fr;
+  grid-template-rows: 95fr 5fr;
+      grid-template-areas: "fake" "naf";
+  height: 100vh;
+  overflow: hidden;
+}
+/*# sourceMappingURL=RC.css.map */

@@ -1,0 +1,50 @@
+* {
+    margin:0px;
+    border:0px;
+    padding:0px;
+}
+body {
+    overflow:hidden;
+}
+#naf {
+    display:grid;
+    grid-area:naf;
+    width:100vw;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows:1fr;
+    grid-template-areas:"point scale rule";
+}
+#pointer {
+    grid-area:point;
+    height:4vh;
+    margin-top:0.5vh;
+    margin:auto;
+}
+#scaler {
+    grid-area:scale;
+    height:4vh;
+    margin-top:0.5vh;
+    margin:auto;
+}
+#ruler {
+    grid-area:rule;
+    height:4vh;
+    margin-top:0.5vh;
+    margin:auto;
+}
+.fakepage {
+    overflow-y:scroll;
+    grid-area:fake;
+}
+#navpos {
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: 95fr 5fr;
+    grid-template-rows: 95fr 5fr;
+    grid-template-areas:
+        "fake"
+        "naf";
+    height: 100vh;
+    overflow: hidden;
+}
