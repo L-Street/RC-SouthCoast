@@ -73,23 +73,84 @@ body {
 
 #pulldon {
   background-color: #4BC0F2;
-  -webkit-transition: top 0.4s;
-  transition: top 0.4s;
+  -webkit-transition: top 0.8s;
+  transition: top 0.8s;
   position: absolute;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  top: -10.8vh;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  top: -100vh;
   width: 100vw;
-  height: 22vh;
 }
 
-#pulldon:hover {
-  top: 0vh;
+#trugger:hover {
+  top: -8vh;
+}
+
+#trugger:hover ~ #pulldon {
+  top: 0px;
+}
+
+#Arrox {
+  width: 30vw;
+  height: 7vh;
+  margin-left: 35vw;
 }
 
 #trugger {
-  width: 30vw;
-  height: 10vh;
-  margin-left: 35vw;
+  width: 100vw;
+  height: 7vh;
+  -webkit-transition: top 0.6s;
+  transition: top 0.6s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  position: absolute;
+  top: 0px;
+  background-color: #4BC0F2;
+}
+
+.pair {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5fr 2fr 1fr;
+      grid-template-columns: 5fr 2fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "label . valu";
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.label {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: label;
+}
+
+.valu {
+  width: 20vw;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: valu;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.valu:focus {
+  outline: 0px;
+  border-bottom: 1px solid black;
+}
+
+#rule {
+  padding-top: 11.2vh;
+}
+
+#Baseline {
+  text-align: center;
+  font-size: 6.3vw;
+}
+
+#Penalties {
+  text-align: center;
+  font-size: 6.3vw;
 }
 /*# sourceMappingURL=RC.css.map */
