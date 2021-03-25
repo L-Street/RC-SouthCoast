@@ -15,7 +15,6 @@
         <div id="rule" class="fakepage" style="display:none;">
             <div id="trugger"> <img id="Arrox" src="files/arrow.png"></div>
             <div id="pulldon">
-                <p class="ruleset">RC South Coast rules</p>
                 <p class="ruleset">SORRCA Lite rules</p>
                 <p class="ruleset">Official Scale Rock Crawling Rules</p>
                 <p class="ruleset">Custom</p>
@@ -26,7 +25,26 @@
             <p id="Penalties">Penalties</p>
             <div id="penalin"></div>
         </div>
-        <div id="scale" class="fakepage" style="display:none; background-color: brown;"></div>
+        <div id="scale" class="fakepage" style="display:none; background-color: brown;">
+            <p>Scale points</p>
+            <div>OFF</div>
+            <div>
+                <p>Vehicle class</p>
+                <select>
+                    <option value="Street">Street</option>
+                    <option value="Trail">Trail</option>
+                    <option value="Modified">Modified</option>
+                </select>
+            </div>
+            <div>
+                <p>Vehicle modifications</p>
+                <select>
+                    <option></option>
+                </select>
+            </div>
+
+            <div id="resetscale">RESET</div>
+        </div>
 
 
         <div id="naf">
@@ -36,6 +54,7 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="RC.json"></script>
     <script src="RC.js"></script>
 </body>
 
