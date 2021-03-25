@@ -163,4 +163,63 @@ body {
   text-align: center;
   font-size: 6.3vw;
 }
+
+#Scaleti {
+  text-align: center;
+}
+
+#scalestat {
+  background-color: rgba(246, 14, 14, 0.63);
+  color: white;
+  font-size: 6vw;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+}
+
+#clas {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  width: 80vw;
+  margin-top: 5vh;
+}
+
+#clas select {
+  background-color: #d4d3d3;
+  font-size: 3vw;
+  width: 80vw;
+}
+
+#modi {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  width: 80vw;
+  margin-top: 5vh;
+}
+
+#modi select {
+  background-color: #d4d3d3;
+  font-size: 3vw;
+  width: 80vw;
+}
+
+#plus {
+  height: 4vh;
+  margin-left: 10vw;
+}
+
+#resetscale {
+  background-color: rgba(246, 14, 14, 0.63);
+  color: white;
+  font-size: 6vw;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+}
 /*# sourceMappingURL=RC.css.map */
