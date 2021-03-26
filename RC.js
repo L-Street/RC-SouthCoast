@@ -107,10 +107,58 @@ window.addEventListener("DOMContentLoaded", function () {
         var thedrop = document.querySelector(".modsele")
         var clone = thedrop.cloneNode(true)
         clone.classList.add("clone")
+        clone.addEventListener("change", function scal(event) {
+            if (document.querySelector("#scalestat").innerText === "OFF") { }
+
+            else {
+                console.log("change")
+                var check = parseInt(document.querySelector("#model").options[document.querySelector("#model").selectedIndex].value)
+                var factors = document.querySelectorAll(".modsele")
+                points = 0
+                scalemeasure = 0
+                for (var i = 0; i < factors.length; i++) {
+                    var attrib = parseInt(factors[i].options[factors[i].selectedIndex].value)
+                    scalemeasure += attrib
+                }
+                if (scalemeasure < check) {
+                    console.log("max")
+                    points += check
+                    scalemeasure = check
+                    document.querySelector("#total").innerText = points
+                } else {
+                    points += scalemeasure
+                    console.log("safe")
+                    document.querySelector("#total").innerText = points
+                }
+            }
+        })
         var plus = event.target
         plus.remove()
         document.querySelector("#modi").appendChild(clone)
         document.querySelector("#modi").appendChild(plus)
+        if (document.querySelector("#scalestat").innerText === "OFF") { }
+
+        else {
+            console.log("change")
+            var check = parseInt(document.querySelector("#model").options[document.querySelector("#model").selectedIndex].value)
+            var factors = document.querySelectorAll(".modsele")
+            points = 0
+            scalemeasure = 0
+            for (var i = 0; i < factors.length; i++) {
+                var attrib = parseInt(factors[i].options[factors[i].selectedIndex].value)
+                scalemeasure += attrib
+            }
+            if (scalemeasure < check) {
+                console.log("max")
+                points += check
+                scalemeasure = check
+                document.querySelector("#total").innerText = points
+            } else {
+                points += scalemeasure
+                console.log("safe")
+                document.querySelector("#total").innerText = points
+            }
+        }
     })
     document.querySelector("#resetscale").addEventListener("click", function noclone(event) {
         var clones = document.querySelectorAll(".clone")
@@ -174,7 +222,9 @@ window.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < losten.length; i++) {
         losten[i].addEventListener("change", function scal(event) {
             if (document.querySelector("#scalestat").innerText === "OFF") { }
+
             else {
+                console.log("change")
                 var check = parseInt(document.querySelector("#model").options[document.querySelector("#model").selectedIndex].value)
                 var factors = document.querySelectorAll(".modsele")
                 points = 0
