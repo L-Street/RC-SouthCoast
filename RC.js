@@ -107,150 +107,43 @@ window.addEventListener("DOMContentLoaded", function () {
         var thedrop = document.querySelector(".modsele")
         var clone = thedrop.cloneNode(true)
         clone.classList.add("clone")
-        clone.addEventListener("change", function scal(event) {
-            if (document.querySelector("#scalestat").innerText === "OFF") { }
-
-            else {
-                console.log("change")
-                var check = parseInt(document.querySelector("#model").options[document.querySelector("#model").selectedIndex].value)
-                var factors = document.querySelectorAll(".modsele")
-                points = 0
-                scalemeasure = 0
-                for (var i = 0; i < factors.length; i++) {
-                    var attrib = parseInt(factors[i].options[factors[i].selectedIndex].value)
-                    scalemeasure += attrib
-                }
-                if (scalemeasure < check) {
-                    console.log("max")
-                    points += check
-                    scalemeasure = check
-                    document.querySelector("#total").innerText = points
-                } else {
-                    points += scalemeasure
-                    console.log("safe")
-                    document.querySelector("#total").innerText = points
-                }
-            }
-        })
+        clone.setAttribute("onchange", "scal()")
         var plus = event.target
         plus.remove()
         document.querySelector("#modi").appendChild(clone)
         document.querySelector("#modi").appendChild(plus)
-        if (document.querySelector("#scalestat").innerText === "OFF") { }
-
-        else {
-            console.log("change")
-            var check = parseInt(document.querySelector("#model").options[document.querySelector("#model").selectedIndex].value)
-            var factors = document.querySelectorAll(".modsele")
-            points = 0
-            scalemeasure = 0
-            for (var i = 0; i < factors.length; i++) {
-                var attrib = parseInt(factors[i].options[factors[i].selectedIndex].value)
-                scalemeasure += attrib
-            }
-            if (scalemeasure < check) {
-                console.log("max")
-                points += check
-                scalemeasure = check
-                document.querySelector("#total").innerText = points
-            } else {
-                points += scalemeasure
-                console.log("safe")
-                document.querySelector("#total").innerText = points
-            }
-        }
+        scal()
     })
     document.querySelector("#resetscale").addEventListener("click", function noclone(event) {
         var clones = document.querySelectorAll(".clone")
         for (var i = 0; i < clones.length; i++) {
             clones[i].remove()
         }
-        if (document.querySelector("#scalestat").innerText === "OFF") { }
-        else {
-            var check = parseInt(document.querySelector("#model").options[document.querySelector("#model").selectedIndex].value)
-            var factors = document.querySelectorAll(".modsele")
-            scalemeasure = 0
-            points = 0
-            for (var i = 0; i < factors.length; i++) {
-                var attrib = parseInt(factors[i].options[factors[i].selectedIndex].value)
-                scalemeasure += attrib
-            }
-            if (scalemeasure < check) {
-                console.log("max")
-                points += check
-                scalemeasure = check
-                document.querySelector("#total").innerText = points
-            } else {
-                points += scalemeasure
-                console.log("safe")
-                document.querySelector("#total").innerText = points
-            }
-        }
+        scal()
+
     })
     document.querySelector("#scalestat").addEventListener("click", function statuz(event) {
         if (document.querySelector("#scalestat").innerText === "OFF") {
             document.querySelector("#scalestat").innerText = "ON"
             document.querySelector("#scalestat").style.backgroundColor = "rgba(21, 236, 17,0.64)"
-            var check = parseInt(document.querySelector("#model").options[document.querySelector("#model").selectedIndex].value)
-            var factors = document.querySelectorAll(".modsele")
-            scalemeasure = 0
-            points = 0
-            for (var i = 0; i < factors.length; i++) {
-                var attrib = parseInt(factors[i].options[factors[i].selectedIndex].value)
-                scalemeasure += attrib
-            }
-            if (scalemeasure < check) {
-                console.log("max")
-                points += check
-                scalemeasure = check
-                document.querySelector("#total").innerText = points
-            } else {
-                points += scalemeasure
-                console.log("safe")
-                document.querySelector("#total").innerText = points
-            }
+            scal()
         }
         else {
             document.querySelector("#scalestat").innerText = "OFF"
             document.querySelector("#scalestat").style.backgroundColor = "rgba(246, 14, 14,0.63)"
-            points -= scalemeasure
             document.querySelector("#total").innerText = points
         }
     })
     var losten = document.querySelectorAll(".modsele")
     console.log(losten)
     for (var i = 0; i < losten.length; i++) {
-        losten[i].addEventListener("change", function scal(event) {
-            if (document.querySelector("#scalestat").innerText === "OFF") { }
-
-            else {
-                console.log("change")
-                var check = parseInt(document.querySelector("#model").options[document.querySelector("#model").selectedIndex].value)
-                var factors = document.querySelectorAll(".modsele")
-                points = 0
-                scalemeasure = 0
-                for (var i = 0; i < factors.length; i++) {
-                    var attrib = parseInt(factors[i].options[factors[i].selectedIndex].value)
-                    scalemeasure += attrib
-                }
-                if (scalemeasure < check) {
-                    console.log("max")
-                    points += check
-                    scalemeasure = check
-                    document.querySelector("#total").innerText = points
-                } else {
-                    points += scalemeasure
-                    console.log("safe")
-                    document.querySelector("#total").innerText = points
-                }
-            }
-        })
+        losten[i].addEventListener("change", scal())
     }
 
     var lens = document.querySelectorAll(".line")
     for (var i = 0; i < lens.length; i++) {
         lens[i].addEventListener("change", function arl(event) {
-            var score = points
+            var score = 0
             for (var i = 0; i < valos.length; i++) {
                 /*console.log(document.querySelector("#" + valos[i]))
                 console.log(document.querySelector("#" + valos[i] + "t"))*/
@@ -259,8 +152,32 @@ window.addEventListener("DOMContentLoaded", function () {
                 score += change
                 console.log(score)
             }
+            points = score
 
-            document.querySelector("#total").innerText = score
+            document.querySelector("#total").innerText = (score += scalemeasure)
         })
     }
 })
+function scal() {
+    if (document.querySelector("#scalestat").innerText === "OFF") { }
+    else {
+        var check = parseInt(document.querySelector("#model").options[document.querySelector("#model").selectedIndex].value)
+        var factors = document.querySelectorAll(".modsele")
+        scalemeasure = 0
+        var calc = points
+        for (var i = 0; i < factors.length; i++) {
+            var attrib = parseInt(factors[i].options[factors[i].selectedIndex].value)
+            scalemeasure += attrib
+        }
+        if (scalemeasure < check) {
+            console.log("max")
+            calc += check
+            scalemeasure = check
+            document.querySelector("#total").innerText = (calc)
+        } else {
+            calc += scalemeasure
+            console.log("safe")
+            document.querySelector("#total").innerText = (calc)
+        }
+    }
+}
