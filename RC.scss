@@ -162,7 +162,6 @@ padding-bottom:0.5vh;
 }
 #plus {
     height:4vh;
-    margin-left:10vw;
 }
 #resetscale {
         background-color:rgba(246, 14, 14,0.63);
@@ -174,4 +173,40 @@ padding-bottom:0.5vh;
         text-align:center;
        padding-top:0.5vh;
     padding-bottom:0.5vh;
+}
+.sumpair {
+    display:grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows:1fr;
+    grid-template-areas: "sumlab sumput";
+    margin-left: 10vw;
+    margin-right:10vw;
+    margin-top:0.5vh;
+}
+
+.sumlab {
+    grid-area:sumlab;
+}
+.line  {
+    width: 35vw;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+.line:focus {
+    outline: 0px;
+    border-bottom: 1px solid black;
+} 
+.sumput {
+   grid-area: sumput;
+}
+#total {
+    text-align: center;
+    margin-left:10vw;
+    width:80vw;
+    border:2px solid black;
+    margin-top:4vh;
+    padding-top:4vh;
+    padding-bottom: 4vh;
+    font-size:9vw;
+    margin-bottom:4vh;
 }

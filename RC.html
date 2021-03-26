@@ -11,7 +11,59 @@
 
 <body>
     <div id="navpos">
-        <div id="point" class="fakepage" style="background-color: blue;">Test</div>
+        <div id="point" class="fakepage">
+            <div id="total">0</div>
+            <div id="sums">
+                <div class="sumpair">
+                    <p class="sumlab">Progress</p>
+                    <input type="number" id="Progresst" value="0" class="sumput line">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Reverse</p>
+                    <input type="number" id="Reverset" value="0" class="sumput line">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Gate marker</p>
+                    <input type="number" id="Gate-Markert" value="0" class="sumput line">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Rollover</p>
+                    <input type="number" id="Rollovert" value="0" class="sumput line">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Boundary marker</p>
+                    <input type="number" id="Boundary-Markert" value="0" class="sumput line">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Vehicle touch</p>
+                    <input type="number" id="Vehicle-Toucht" value="0" class="sumput line">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Course direction</p>
+                    <input type="number" id="Course-Directiont" value="0" class="sumput line">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Self recovery</p>
+                    <input type="number" id="Self-Recoveryt" value="0" class="sumput line">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Assisted recovery</p>
+                    <input type="number" id="Assisted-Recoveryt" value="0" class="sumput line">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Point out</p>
+                    <input type="checkbox" id="pout" class="sumput box">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Did not start</p>
+                    <input type="checkbox" id="DNS" class="sumput box">
+                </div>
+                <div class="sumpair">
+                    <p class="sumlab">Did not finish</p>
+                    <input type="checkbox" id="DNF" class="sumput box">
+                </div>
+            </div>
+        </div>
         <div id="rule" class="fakepage" style="display:none;">
             <div id="trugger"> <img id="Arrox" src="files/arrow.png"></div>
             <div id="pulldon">
@@ -30,15 +82,16 @@
             <div id="scalestat">OFF</div>
             <div id="clas">
                 <p>Vehicle class</p>
-                <select>
-                    <option value="Street">Street</option>
-                    <option value="Trail">Trail</option>
-                    <option value="Modified">Modified</option>
+                <select id="model">
+                    <option value="-40">Scale</option>
+                    <option value="-40">Street</option>
+                    <option value="-30">Trail</option>
+                    <option value="-30">Modified</option>
                 </select>
             </div>
             <div id="modi">
                 <p id="moditi">Vehicle modifications</p>
-                <select>
+                <select class="modsele">
                     <option value="-12">Hardbody Full</option>
                     <option value="-6">Hardbody Cab</option>
                     <option value="-3">Dropbed</option>
@@ -90,8 +143,9 @@
                     <option value="-1">Functional accessory(max 8)</option>
 
                 </select>
+                <img id="plus" src="files/plus.png">
             </div>
-            <img id="plus" src="files/plus.png">
+
 
             <div id="resetscale">RESET</div>
         </div>
