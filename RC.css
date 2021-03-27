@@ -269,4 +269,10 @@ body {
   font-size: 9vw;
   margin-bottom: 4vh;
 }
+
+#info {
+  text-align: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
 /*# sourceMappingURL=RC.css.map */

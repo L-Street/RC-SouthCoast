@@ -13,6 +13,7 @@
     <div id="navpos">
         <div id="point" class="fakepage">
             <div id="total">0</div>
+            <p id="info">Select a ruleset then enter quantity of each item. Scale points are also available</p>
             <div id="sums">
                 <div class="sumpair">
                     <p class="sumlab">Progress</p>
@@ -91,7 +92,7 @@
             </div>
             <div id="modi">
                 <p id="moditi">Vehicle modifications</p>
-                <select class="modsele">
+                <select class="modsele" onchange=scal()>
                     <option value="-12">Hardbody Full</option>
                     <option value="-6">Hardbody Cab</option>
                     <option value="-3">Dropbed</option>

@@ -134,30 +134,80 @@ window.addEventListener("DOMContentLoaded", function () {
             document.querySelector("#total").innerText = points
         }
     })
-    var losten = document.querySelectorAll(".modsele")
-    console.log(losten)
-    for (var i = 0; i < losten.length; i++) {
-        losten[i].addEventListener("change", scal())
-    }
 
     var lens = document.querySelectorAll(".line")
     for (var i = 0; i < lens.length; i++) {
-        lens[i].addEventListener("change", function arl(event) {
+        lens[i].addEventListener("change", function arl() {
             var score = 0
-            for (var i = 0; i < valos.length; i++) {
-                /*console.log(document.querySelector("#" + valos[i]))
-                console.log(document.querySelector("#" + valos[i] + "t"))*/
-                var change = document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value
-                console.log(change)
-                score += change
+            if (document.querySelector("#pout").checked === true) {
+                score = parseInt(document.querySelector("#Point-out").value)
+                points = score
                 console.log(score)
+                document.querySelector("#total").innerText = score += scalemeasure
             }
-            points = score
+            else {
+                if (document.querySelector("#DNF").checked === true) {
+                    score = parseInt(document.querySelector("#Did-not-finish").value)
+                    points = score
+                    document.querySelector("#total").innerText = (score += scalemeasure)
+                }
+                else {
+                    if (document.querySelector("#DNS").checked === true) {
+                        score = parseInt(document.querySelector("#Did-not-start").value)
+                        points = score
+                        document.querySelector("#total").innerText = score
+                    }
+                    else {
+                        for (var i = 0; i < valos.length; i++) {
+                            var change = document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value
+                            score += change
+                        }
 
-            document.querySelector("#total").innerText = (score += scalemeasure)
+                        points = score
+
+                        document.querySelector("#total").innerText = (score += scalemeasure)
+                    }
+                }
+            }
+        })
+    }
+    var bos = document.querySelectorAll(".box")
+    for (var i = 0; i < bos.length; i++) {
+        bos[i].addEventListener("click", function arl() {
+            var score = 0
+            if (document.querySelector("#pout").checked === true) {
+                score = parseInt(document.querySelector("#Point-out").value)
+                points = score
+                document.querySelector("#total").innerText = score += scalemeasure
+            }
+            else {
+                if (document.querySelector("#DNF").checked === true) {
+                    score = parseInt(document.querySelector("#Did-not-finish").value)
+                    points = score
+                    document.querySelector("#total").innerText = (score += scalemeasure)
+                }
+                else {
+                    if (document.querySelector("#DNS").checked === true) {
+                        score = parseInt(document.querySelector("#Did-not-start").value)
+                        points = score
+                        document.querySelector("#total").innerText = score
+                    }
+                    else {
+                        for (var i = 0; i < valos.length; i++) {
+                            var change = document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value
+                            score += change
+                        }
+
+                        points = score
+
+                        document.querySelector("#total").innerText = (score += scalemeasure)
+                    }
+                }
+            }
         })
     }
 })
+
 function scal() {
     if (document.querySelector("#scalestat").innerText === "OFF") { }
     else {
