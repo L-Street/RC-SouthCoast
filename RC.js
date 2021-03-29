@@ -1,3 +1,10 @@
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+    }
+    else {
+        window.location.replace("index.html")
+    }
+})
 var points = 0
 var scalemeasure = 0
 var rules = {
