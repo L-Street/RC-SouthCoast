@@ -1,5 +1,14 @@
-firebase.auth().onAuthStateChanged(function (user) {
+
+var custom = "text"
+firebase.auth().onAuthStateChanged(async function (user) {
     if (user) {
+        await db.collection("users").doc(user.email).get().then((doc) => {
+            if (doc.exists) {
+                custom = doc.data();
+            }
+        })
+
+        console.log(custom)
     }
     else {
         window.location.replace("index.html")
@@ -55,6 +64,17 @@ var baselin = ["Gates", "Progress"]
 var penalin = ["Reverse", "Gate-Marker", "Rollover", "Boundary-Marker", "Vehicle-Touch", "Course-Direction", "Self-Recovery", "Assisted-Recovery", "Point-out", "Did-not-finish", "Did-not-start"]
 var valos = ["Progress", "Reverse", "Gate-Marker", "Rollover", "Boundary-Marker", "Vehicle-Touch", "Course-Direction", "Self-Recovery", "Assisted-Recovery"]
 window.addEventListener("DOMContentLoaded", function () {
+    db
+        .collection("events").where("status", "==", "open")
+        .get()
+        .then(async function (querySnapshot) {
+            querySnapshot.forEach(async function (doc) {
+                var ev = document.createElement("option")
+                ev.value = doc.id
+                ev.innerText = doc.id
+                document.querySelector("#comps").appendChild(ev)
+            })
+        })
 
     var changers = document.querySelectorAll(".swapper")
     for (var i = 0; i < changers.length; i++) {
@@ -213,6 +233,29 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         })
     }
+    document.querySelector("#final").addEventListener("click", async function () {
+        var list = document.querySelector("#comps")
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth() + 1;
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+
+        var date = day + "_" + month + "_" + year
+        await db.collection("users").doc(user.email).get().then((doc) => {
+            if (doc.exists) {
+                console.log("already posted")
+            }
+            else {
+                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
+                    first: custom.first,
+                    sur: custom.sur,
+                    score: document.querySelector("#total").innerText
+                })
+
+            }
+        })
+
+    })
 })
 
 function scal() {

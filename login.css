@@ -1,0 +1,141 @@
+* {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+#admin-box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 3fr 1fr 3fr 1fr 1fr;
+      grid-template-rows: 3fr 1fr 3fr 1fr 1fr;
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-areas: "emil emil emil" ". . ." "passo passo passo" ". . ." ". conf .";
+  width: 80vw;
+  margin-left: 10vw;
+  height: 50vh;
+  margin-top: 25vh;
+  margin-right: 10vw;
+}
+
+#Emilp {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: emil;
+}
+
+#passop {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: passo;
+}
+
+#conform {
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+  grid-area: conf;
+  color: white;
+  background-color: black;
+}
+
+#create {
+  color: white;
+  background-color: brown;
+  padding: 1vw;
+  width: 100vw;
+}
+
+#Emil {
+  width: 78vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-bottom: 1px solid black;
+}
+
+#passowrd {
+  width: 78vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-bottom: 1px solid black;
+}
+
+#details {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 3fr 1fr 3fr 1fr 3fr 1fr 3fr 1fr 1fr;
+      grid-template-rows: 3fr 1fr 3fr 1fr 3fr 1fr 3fr 1fr 1fr;
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-areas: "fname fname fname" ". . ." "sname sname sname" ". . ." "cemil cemil cemil" ". . ." "cpasso cpasso cpasso"  ". . ." ". crat .";
+  width: 80vw;
+  margin-left: 10vw;
+  height: 50vh;
+  margin-top: 25vh;
+  margin-right: 10vw;
+}
+
+#Fname {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: fname;
+  width: 78vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-bottom: 1px solid black;
+}
+
+#Sname {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: sname;
+  width: 78vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-bottom: 1px solid black;
+}
+
+#Cemail {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: cemil;
+  width: 78vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-bottom: 1px solid black;
+}
+
+#Cpass {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: cpasso;
+  width: 78vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-bottom: 1px solid black;
+}
+
+#DConform {
+  -ms-grid-row: 9;
+  -ms-grid-column: 2;
+  grid-area: crat;
+  color: white;
+  background-color: brown;
+  padding: 1vw;
+}
+
+input:focus {
+  border: 0px;
+  border-bottom: 1px solid black;
+}
+
+:focus {
+  outline: none;
+}
+/*# sourceMappingURL=login.css.map */
