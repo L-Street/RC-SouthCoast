@@ -238,9 +238,13 @@ window.addEventListener("DOMContentLoaded", function () {
             .get()
             .then(async function (querySnapshot) {
                 querySnapshot.forEach(async function (doc) {
+
+
                     db
                         .collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(doc.id).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
-                            tpoints += doc.data().score
+                            if (doc.exists) {
+                                tpoints += doc.data().score
+                            }
                         })
                 })
             })
@@ -255,26 +259,26 @@ window.addEventListener("DOMContentLoaded", function () {
         var date = day + "_" + month + "_" + year
         var date2 = day + "/" + month + "/" + year
         await db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
-            if (doc.exists) {
+            /*if (doc.exists) {
                 window.alert("Score already recorded for this event + day")
-            }
-            else {
-                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("totals").doc([custom.first + " " + custom.sur]).update({
-                    score: tpoints
-                })
-                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).set({
-                    date: date2
-                    // [custom.first + " " + custom.sur]: tpoints
-                })
-                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
-                    first: custom.first,
-                    sur: custom.sur,
-                    score: parseInt(document.querySelector("#total").innerText)
-                })
+            }*/
+            //else {
+            db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("totals").doc(custom.first + " " + custom.sur).set({
+                score: tpoints
+            })
+            db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).set({
+                date: date2
+                // [custom.first + " " + custom.sur]: tpoints
+            })
+            db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
+                first: custom.first,
+                sur: custom.sur,
+                score: parseInt(document.querySelector("#total").innerText)
+            })
 
-                document.querySelector("#final").innerText = "Saved"
+            document.querySelector("#final").innerText = "Saved"
 
-            }
+            // }
         })
 
     })
