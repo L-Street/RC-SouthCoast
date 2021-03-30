@@ -1,0 +1,57 @@
+* {
+    margin:0px;
+    border:0px;
+    padding:0px;
+}
+#dropper {
+    width:100vw;
+    height:5vw;
+    display:inline;
+    overflow-x:scroll;
+    background-color:brown;
+    position: absolute;
+    top:0vh;
+}
+.taber {
+margin-top:13vw;
+display:grid;
+grid-template-columns:1fr 1fr;
+grid-template-rows:1fr;
+grid-template-areas:"nam scor"
+}
+.nam {
+    grid-area:nam;
+}
+.scor {
+    grid-area:scor;
+}
+#subdropper {
+    width:100vw;
+    height:5vw;
+    overflow-x:scroll;
+    background-color:rgb(218, 56, 56);
+    position: absolute;
+    top:5vw;
+}
+.sub {
+color:white;
+text-align:center;
+height:5vw;
+width:20vw;
+font-size:3vw;
+padding-left:2vw;
+padding-right:2vw;
+border-right:1px solid white;
+border-left:1px solid white;
+}
+.subsub {
+    color:white;
+text-align:center;
+height:5vw;
+width:20vw;
+font-size:3vw;
+padding-left:2vw;
+padding-right:2vw;
+border-right:1px solid white;
+border-left:1px solid white;
+}

@@ -7,8 +7,6 @@ firebase.auth().onAuthStateChanged(async function (user) {
                 custom = doc.data();
             }
         })
-
-        console.log(custom)
     }
     else {
         window.location.replace("index.html")
@@ -234,6 +232,20 @@ window.addEventListener("DOMContentLoaded", function () {
         })
     }
     document.querySelector("#final").addEventListener("click", async function () {
+        var tpoints = 0
+        db
+            .collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores")
+            .get()
+            .then(async function (querySnapshot) {
+                querySnapshot.forEach(async function (doc) {
+                    db
+                        .collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(doc.id).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
+                            tpoints += doc.data().score
+                        })
+                })
+            })
+        tpoints += parseInt(document.querySelector("#total").innerText)
+
         var list = document.querySelector("#comps")
         var dateObj = new Date();
         var month = dateObj.getUTCMonth() + 1;
@@ -241,16 +253,26 @@ window.addEventListener("DOMContentLoaded", function () {
         var year = dateObj.getUTCFullYear();
 
         var date = day + "_" + month + "_" + year
-        await db.collection("users").doc(user.email).get().then((doc) => {
+        var date2 = day + "/" + month + "/" + year
+        await db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
             if (doc.exists) {
-                console.log("already posted")
+                window.alert("Score already recorded for this event + day")
             }
             else {
+                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("totals").doc([custom.first + " " + custom.sur]).update({
+                    score: tpoints
+                })
+                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).set({
+                    date: date2
+                    // [custom.first + " " + custom.sur]: tpoints
+                })
                 db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
                     first: custom.first,
                     sur: custom.sur,
-                    score: document.querySelector("#total").innerText
+                    score: parseInt(document.querySelector("#total").innerText)
                 })
+
+                document.querySelector("#final").innerText = "Saved"
 
             }
         })
