@@ -15,19 +15,48 @@ window.addEventListener("DOMContentLoaded", async function () {
 
 
                 ev.addEventListener("click", async function (event) {
+                    var sus = document.querySelectorAll(".sub")
+                    for (var i = 0; i < sus.length; i++) {
+                        sus[i].classList.remove("chose")
+                    }
+                    ev.classList.add("chose")
                     await db
                         .collection("events").doc(event.target.innerText).collection("scores")
                         .get()
                         .then(async function (querySnapshot) {
                             querySnapshot.forEach(async function (doc) {
+
                                 var subev = document.createElement("div")
                                 subev.innerText = doc.data().date
+                                subev.id = doc.id
 
 
 
 
-                                subev.addEventListener("click", function () {
+                                subev.addEventListener("click", async function (event) {
+                                    await db
+                                        .collection("events").doc(document.querySelector(".chose").innerText).collection("scores").doc(event.target.id).collection("points")
+                                        .get()
+                                        .then(async function (querySnapshot) {
+                                            var alread = document.querySelectorAll(".taber")
+                                            for (var i = 0; i < alread.length; i++) {
+                                                alread[i].remove()
+                                            }
+                                            querySnapshot.forEach(async function (doc) {
+                                                var tabe = document.createElement("div")
+                                                tabe.classList.add("taber")
+                                                var nam = document.createElement("div")
+                                                nam.classList.add("nam")
+                                                nam.innerText = doc.data().first + " " + doc.data().sur
+                                                var score = document.createElement("div")
+                                                score.classList.add("scor")
+                                                score.innerText = doc.data().score
+                                                tabe.appendChild(nam)
+                                                tabe.appendChild(score)
 
+                                                document.querySelector("#scorescreen").appendChild(tabe)
+                                            })
+                                        })
                                 })
 
 
@@ -42,6 +71,10 @@ window.addEventListener("DOMContentLoaded", async function () {
                         .collection("events").doc(event.target.innerText).collection("totals")
                         .get()
                         .then(async function (querySnapshot) {
+                            var alread = document.querySelectorAll(".taber")
+                            for (var i = 0; i < alread.length; i++) {
+                                alread[i].remove()
+                            }
                             querySnapshot.forEach(async function (doc) {
                                 var tabe = document.createElement("div")
                                 tabe.classList.add("taber")
