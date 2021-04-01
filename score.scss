@@ -17,13 +17,23 @@ margin-top:13vw;
 display:grid;
 grid-template-columns:1fr 1fr;
 grid-template-rows:1fr;
-grid-template-areas:"nam scor"
+grid-template-areas:"nam scor";
+width:80vw;
+margin-left:10vw;
 }
 .nam {
     grid-area:nam;
+    text-align:center;
+    padding-top: 0.8vw;
+    padding-bottom:0.8vw;
+   border:1px solid black;
 }
 .scor {
+    text-align:center;
+     padding-top: 0.8vw;
+    padding-bottom:0.8vw;
     grid-area:scor;
+    border:1px solid black;
 }
 #subdropper {
     width:100vw;

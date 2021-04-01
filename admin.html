@@ -5,30 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="admin.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div id="logpage">
+    <div id="adpage">
         <form id="admin-box">
             <div id="Emilp"><input id="Emil" placeholder="email" type="email" required /></div>
             <div id="passop"><input id="passowrd" placeholder="password" type="password" required />
             </div>
             <button type="button" id="conform" onclick=login(this)>Login</button>
         </form>
-        <button id="create">Create account</button>
     </div>
-    <div id="createpage" style="display:none;">
-        <form id="details">
-            <input placeholder="First-name" id="Fname" type="name">
-            <input placeholder="Surname" id="Sname" type="name">
-            <input placeholder="Email" id="Cemail" type="email">
-            <input placeholder="Password" id="Cpass" type="password">
-            <button type="button" id="DConform" onclick=account(this)>Create</button>
-        </form>
-        <button id="retrun" onclick=switc()>Return</button>
-    </div>
+
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -37,8 +27,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
     <script src="firebase.js"></script>
-    <script src="login.js">
-    </script>
+    <script src="admin.js"></script>
 </body>
 
 </html>

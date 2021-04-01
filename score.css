@@ -23,18 +23,28 @@
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
       grid-template-areas: "nam scor";
+  width: 80vw;
+  margin-left: 10vw;
 }
 
 .nam {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: nam;
+  text-align: center;
+  padding-top: 0.8vw;
+  padding-bottom: 0.8vw;
+  border: 1px solid black;
 }
 
 .scor {
+  text-align: center;
+  padding-top: 0.8vw;
+  padding-bottom: 0.8vw;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: scor;
+  border: 1px solid black;
 }
 
 #subdropper {

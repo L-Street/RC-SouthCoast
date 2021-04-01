@@ -27,12 +27,9 @@ function login(e) {
             const password = logins["passowrd"].value;
 
             // firebase login
-            firebase.auth().signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    window.location.replace("RC.html")
-                    var user = userCredential.user;
-                    // ...
-                })
+            firebase.auth().signInWithEmailAndPassword(email, password).then((cred) => {
+                window.location.replace("RC.html");
+            })
         })
 }
 function account() {

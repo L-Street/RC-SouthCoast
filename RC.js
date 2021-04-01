@@ -5,6 +5,10 @@ firebase.auth().onAuthStateChanged(async function (user) {
         await db.collection("users").doc(user.email).get().then((doc) => {
             if (doc.exists) {
                 custom = doc.data();
+                if (doc.data().type == "admin") {
+                    window.location.replace("index.html")
+                }
+                else { }
             }
         })
     }
@@ -95,7 +99,37 @@ window.addEventListener("DOMContentLoaded", function () {
             for (var i = 0; i < penalin.length; i++) {
                 document.querySelector("#" + penalin[i]).value = rules[event.target.innerText][penalin[i]]
             }
+            var score = 0
+            if (document.querySelector("#pout").checked === true) {
+                score = parseInt(document.querySelector("#Point-out").value)
+                points = score
+                console.log(score)
+                document.querySelector("#total").innerText = score += scalemeasure
+            }
+            else {
+                if (document.querySelector("#DNF").checked === true) {
+                    score = parseInt(document.querySelector("#Did-not-finish").value)
+                    points = score
+                    document.querySelector("#total").innerText = (score += scalemeasure)
+                }
+                else {
+                    if (document.querySelector("#DNS").checked === true) {
+                        score = parseInt(document.querySelector("#Did-not-start").value)
+                        points = score
+                        document.querySelector("#total").innerText = score
+                    }
+                    else {
+                        for (var i = 0; i < valos.length; i++) {
+                            var change = parseInt(document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value)
+                            score += change
+                        }
 
+                        points = score
+
+                        document.querySelector("#total").innerText = (score += scalemeasure)
+                    }
+                }
+            }
         })
     }
     for (var i = 0; i < baselin.length; i++) {
@@ -147,6 +181,13 @@ window.addEventListener("DOMContentLoaded", function () {
         scal()
 
     })
+    document.querySelector("#loggers").addEventListener("click", function logout(event) {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
+    })
     document.querySelector("#scalestat").addEventListener("click", function statuz(event) {
         if (document.querySelector("#scalestat").innerText === "OFF") {
             document.querySelector("#scalestat").innerText = "ON"
@@ -162,7 +203,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     var lens = document.querySelectorAll(".line")
     for (var i = 0; i < lens.length; i++) {
-        lens[i].addEventListener("change", function arl() {
+        lens[i].addEventListener("keyup", function arl() {
             var score = 0
             if (document.querySelector("#pout").checked === true) {
                 score = parseInt(document.querySelector("#Point-out").value)
@@ -184,7 +225,7 @@ window.addEventListener("DOMContentLoaded", function () {
                     }
                     else {
                         for (var i = 0; i < valos.length; i++) {
-                            var change = document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value
+                            var change = parseInt(document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value)
                             score += change
                         }
 
