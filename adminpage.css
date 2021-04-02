@@ -3,4 +3,60 @@
   border: 0px;
   padding: 0px;
 }
+
+.ruleoop {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: "1fr 1fr";
+      grid-template-columns: "1fr 1fr";
+  -ms-grid-rows: "1fr";
+      grid-template-rows: "1fr";
+      grid-template-areas: "rulep inpu";
+  width: 80vw;
+  margin-left: 10vw;
+}
+
+.rulep {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: rulep;
+  width: 40vw;
+}
+
+.inpu {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: inpu;
+  border-bottom: 1px solid black;
+}
+
+.inpu:focus {
+  border-bottom: 1px solid black;
+}
+
+#Rule-name {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: "1fr 1fr";
+      grid-template-columns: "1fr 1fr";
+  -ms-grid-rows: "1fr";
+      grid-template-rows: "1fr";
+      grid-template-areas: "rulep inpu";
+  width: 80vw;
+  margin-left: 10vw;
+  font-size: 6vw;
+}
+
+#Rule-name p {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: rulep;
+  width: 50vw;
+}
+
+#Rule-name input {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: inpu;
+}
 /*# sourceMappingURL=adminpage.css.map */

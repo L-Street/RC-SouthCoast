@@ -248,7 +248,6 @@ body {
 }
 
 .line:focus {
-  outline: 0px;
   border-bottom: 1px solid black;
 }
 

@@ -5,14 +5,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="adminpage.scss">
+    <link rel="stylesheet" type="text/css" href="adminpage.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div>Making new rules</div>
-    <div>New competition</div>
-    <div>Current competition</div>
+    <div name="newru" class="tabb">Rules</div>
+    <div name="newco" class="tabb">New competition</div>
+    <div name="newcu" class="tabb">Current competition</div>
+
+    <div id="newru" style="display:none" class="pseupa">
+        <button>Back</button>
+
+    </div>
+    <div id="ruleform" style="display:none">
+        <div id="Rule-name">
+            <p class="">Ruleset name</p><input class="" placeholder="Name">
+        </div>
+        <div id="Assisted-Recovery" class="ruleoop">
+            <p class="rulep">Assisted recovery</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Boundary-Marker" class="ruleoop">
+            <p class="rulep">Boundary marker</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Course-Direction" class="ruleoop">
+            <p class="rulep">Course direction</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Did-not-finish" class="ruleoop">
+            <p class="rulep">Did not finish</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Did-not-start" class="ruleoop">
+            <p class="rulep">Did not start</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Point-Out" class="ruleoop">
+            <p class="rulep">Point out</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Gate-Marker" class="ruleoop">
+            <p class="rulep">Gate marker</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Progress" class="ruleoop">
+            <p class="rulep">Progress</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Reverse" class="ruleoop">
+            <p class="rulep">Reverse</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Rollover" class="ruleoop">
+            <p class="rulep">Rollover</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Self-Recovery" class="ruleoop">
+            <p class="rulep">Self recovery</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <div id="Vehicle-Touch" class="ruleoop">
+            <p class="rulep">Vehicle Touch</p><input type="number" class="inpu" placeholder="value">
+        </div>
+        <button id="rulesub">SUBMIT</button>
+    </div>
+    <div id="newco" style="display:none" class="pseupa"></div>
+    <div id="newcu" style="display:none" class="pseupa"></div>
 
 
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
