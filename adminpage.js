@@ -29,36 +29,92 @@ window.addEventListener("DOMContentLoaded", async function la() {
                 name.classList.add("rulen")
                 var remove = document.createElement("img")
                 remove.classList.add("remover")
+                remove.alt = "trash"
                 remove.addEventListener("click", function removv() {
 
                 })
-                var thene = document.createElement("button")
-                thene.innerText = "New"
-                thene.addEventListener("click", function () {
-                    document.querySelector("#ruleform").style.display = "block"
-                    document.querySelector("#newru").style.display = "none"
-                })
+
                 box.appendChild(name)
                 box.appendChild(remove)
                 document.querySelector("#newru").appendChild(box)
-                document.querySelector("#newru").appendChild(thene)
+            })
+            var thene = document.createElement("button")
+            thene.innerText = "New"
+            thene.addEventListener("click", function () {
+                document.querySelector("#ruleform").style.display = "block"
+                document.querySelector("#newru").style.display = "none"
+            })
+            document.querySelector("#newru").appendChild(thene)
+        })
+    await db.collection("events")
+        .get()
+        .then(async function (querySnapshot) {
+            querySnapshot.forEach(async function (doc) {
+                var big = document.createElement("div")
+                big.classList.add("big")
+                var nim = document.createElement("p")
+                nim.innerText = doc.id
+                nim.classList.add("nim")
+                var stat = document.createElement("div")
+                stat.innerText = doc.data().status
+                stat.id = doc.id
+                stat.addEventListener("click", function (event) {
+                    if (event.target.innerText == "open") {
+                        db.collection("events").doc(event.target.id).update({
+                            status: "closed"
+                        })
+                        event.target.style.backgroundColor = "red"
+                        event.target.innerText = "closed"
+                    }
+                    else {
+                        db.collection("events").doc(event.target.id).update({
+                            status: "open"
+                        })
+                        event.target.style.backgroundColor = "green"
+                        event.target.innerText = "open"
+                    }
+                })
+                stat.classList.add("stat")
+                if (doc.data().status == "open") {
+                    stat.style.backgroundColor = "green"
+                }
+                else {
+                    stat.style.backgroundColor = "red"
+                }
+                big.appendChild(nim)
+                big.appendChild(stat)
+                document.querySelector("#newcu").appendChild(big)
             })
         })
+    document.querySelector("#tolist").addEventListener("click", async function back(event) {
+        document.querySelector("#ruleform").style.display = "none"
+        document.querySelector("#newru").style.display = "block"
+    })
+    var mainer = document.querySelectorAll(".mainba")
+    for (var i = 0; i < mainer.length; i++) {
+        mainer[i].addEventListener("click", async function back(event) {
+            event.target.parentNode.style.display = "none"
+            for (var i = 0; i < tabb.length; i++) {
+
+                for (var i = 0; i < tabb.length; i++) {
+                    tabb[i].style.display = "block"
+                }
+
+            }
+        })
+    }
     document.querySelector("#rulesub").addEventListener("click", async function givit(event) {
 
         await db.collection("rules").doc(document.querySelector("#Rule-name").getElementsByTagName("input")[0].value).set({
         })
         var ruleoop = document.querySelectorAll(".ruleoop")
-        console.log(ruleoop)
         for (var i = 0; i < ruleoop.length; i++) {
             if (ruleoop[i].querySelector(".inpu").value == "") {
-                console.log(ruleoop[i].id)
                 await db.collection("rules").doc(document.querySelector("#Rule-name").getElementsByTagName("input")[0].value).update({
                     [ruleoop[i].id]: 0
                 })
             }
             else {
-                console.log(ruleoop[i].id)
                 await db.collection("rules").doc(document.querySelector("#Rule-name").getElementsByTagName("input")[0].value).update({
                     [ruleoop[i].id]: ruleoop[i].querySelector(".inpu").value
                 })
