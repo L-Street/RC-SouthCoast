@@ -33,6 +33,10 @@ window.addEventListener("DOMContentLoaded", async function la() {
                 remove.addEventListener("click", function removv() {
 
                 })
+                var optin = document.createElement("option")
+                optin.value = doc.id
+                optin.innerText = doc.id
+                document.querySelector("#rulesel").appendChild(optin)
 
                 box.appendChild(name)
                 box.appendChild(remove)
@@ -121,6 +125,32 @@ window.addEventListener("DOMContentLoaded", async function la() {
             }
         }
     })
+
+    document.querySelector("#newcompsub").addEventListener("click", async function newcom(event) {
+        var rulex = document.querySelector("#rulesel")
+        console.log(document.querySelector("#compid").value.toLowerCase())
+        await db.collection("events").where("name", "==", document.querySelector("#compid").value.toLowerCase()).get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach(async (doc) => {
+                    if (doc.exists) {
+                        window.alert("doc already exists")
+
+                    }
+
+                    else {
+                        await db.collection("events").doc(document.querySelector("#compid").value).set({
+                            name: document.querySelector("#compid").value.toLowerCase(),
+                            ruleset: rulex.options[rulex.selectedIndex].value,
+                            status: "open"
+                        })
+                    }
+                });
+
+
+
+            })
+    }
+    )
     var tabb = document.querySelectorAll(".tabb")
     for (var i = 0; i < tabb.length; i++) {
         tabb[i].addEventListener("click", function tab(event) {
