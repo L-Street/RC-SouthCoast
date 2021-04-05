@@ -23,18 +23,120 @@
     border-bottom: 1px solid black;
 }
 #Rule-name {
+    margin-top:2vh;
     display:grid;
-    grid-template-columns:"1fr 1fr";
-    grid-template-rows: "1fr";
-    grid-template-areas: "rulep inpu";
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". inpu .";
     width:80vw;
     margin-left:10vw;
 font-size:6vw;
-p {
-    grid-area:rulep;
-    width:50vw;
-}
 input {
     grid-area:inpu;
+    width:40vw;
 }
+}
+#maingrid {
+    grid-template-columns: 1fr;
+    grid-template-rows:1fr 1fr 1fr ;
+    grid-template-areas: "newru"
+    "newco"
+    "newcu";
+}
+#newrui {
+    grid-area:newru;
+    background-color: #2CCF04;
+}
+#newcoi {
+    grid-area:newco;
+    background-color: #000000;
+    color:#2CCF04;
+}
+#newcui {
+    grid-area:newcu;
+    background-color: #2CCF04;
+}
+.tabb {
+    height:33vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainba {
+    width:100vw;
+    height:5vh;
+    background: #2CCF04;
+    text-align: center;
+}
+.rulen {
+    margin-left:10vw;
+    width:80vw;
+    border-radius:3vw;
+    text-align:center;
+    background: #2CCF04;
+    color:black;
+    margin-top:2vh;
+    padding-top:0.5vh;
+    padding-bottom:0.5vh;
+}
+.thene {
+    border-radius:2vw;
+    margin-top:2vh;
+    width:20vw;
+    margin-left:40vw;
+    padding-top:0.3vh;
+    padding-bottom:0.3vh;
+    background-color: #2CCF04;
+}
+#newru {
+    background-color: #000000;
+    height:100vh;
+    overflow-y: scroll;
+}
+#tolist {
+    width:100vw;
+    height:5vh;
+    background: #2CCF04;
+    text-align: center;
+}
+#ruleform {
+    height:100vh;
+    background-color: #000000;
+}
+.ruleoop {
+    margin-left:10vw;
+    width:80vw;
+    border-radius:3vw;
+    text-align:center;
+    background: #2CCF04;
+    color:black;
+    margin-top:2vh;
+    padding-top:0.5vh;
+    padding-bottom:0.5vh;
+    display:grid;
+    grid-template-areas: "rulena rulein";
+    grid-template-rows:1fr ;
+    grid-template-columns: 1fr 1fr ;
+}
+.rulep {
+grid-area:rulena;
+}
+.inpu {
+    grid-area: rulein;
+    width: 36vw;
+    border-radius: 2vw;
+    padding-left: 2vw;
+    border:none;
+}
+.inpu:focus {
+border-radius: 2vw;
+} 
+#rulesub {
+    border-radius: 2vw;
+    margin-top: 2vh;
+    width: 20vw;
+    margin-left: 40vw;
+    padding-top: 0.3vh;
+    padding-bottom: 0.3vh;
+    background-color: #2CCF04;
 }

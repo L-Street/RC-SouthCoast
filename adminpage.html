@@ -10,17 +10,19 @@
 </head>
 
 <body>
-    <div name="newru" class="tabb">Rules</div>
-    <div name="newco" class="tabb">New competition</div>
-    <div name="newcu" class="tabb">Current competition</div>
-
+    <div id="maingrid">
+        <div name="newru" class="tabb" id="newrui">Rules</div>
+        <div name="newco" class="tabb" id="newcoi">New competition</div>
+        <div name="newcu" class="tabb" id="newcui">Current competition</div>
+    </div>
     <div id="newru" style="display:none" class="pseupa">
         <button class="mainba">Back</button>
 
     </div>
     <div id="ruleform" style="display:none">
+        <button id="tolist">Back</button>
         <div id="Rule-name">
-            <p class="">Ruleset name</p><input class="" placeholder="Name">
+            <input id="#ruep" placeholder="Name">
         </div>
         <div id="Assisted-Recovery" class="ruleoop">
             <p class="rulep">Assisted recovery</p><input type="number" class="inpu" placeholder="value">
@@ -58,8 +60,8 @@
         <div id="Vehicle-Touch" class="ruleoop">
             <p class="rulep">Vehicle Touch</p><input type="number" class="inpu" placeholder="value">
         </div>
-        <button id="rulesub">SUBMIT</button>
-        <button id="tolist">Back</button>
+        <button id="rulesub">Submit</button>
+
     </div>
     <div id="newco" style="display:none" class="pseupa">
         <button class="mainba">Back</button>

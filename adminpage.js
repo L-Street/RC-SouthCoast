@@ -27,22 +27,16 @@ window.addEventListener("DOMContentLoaded", async function la() {
                 var name = document.createElement("p")
                 name.innerText = doc.id
                 name.classList.add("rulen")
-                var remove = document.createElement("img")
-                remove.classList.add("remover")
-                remove.alt = "trash"
-                remove.addEventListener("click", function removv() {
-
-                })
                 var optin = document.createElement("option")
                 optin.value = doc.id
                 optin.innerText = doc.id
                 document.querySelector("#rulesel").appendChild(optin)
 
                 box.appendChild(name)
-                box.appendChild(remove)
                 document.querySelector("#newru").appendChild(box)
             })
             var thene = document.createElement("button")
+            thene.classList.add("thene")
             thene.innerText = "New"
             thene.addEventListener("click", function () {
                 document.querySelector("#ruleform").style.display = "block"
@@ -98,13 +92,7 @@ window.addEventListener("DOMContentLoaded", async function la() {
     for (var i = 0; i < mainer.length; i++) {
         mainer[i].addEventListener("click", async function back(event) {
             event.target.parentNode.style.display = "none"
-            for (var i = 0; i < tabb.length; i++) {
-
-                for (var i = 0; i < tabb.length; i++) {
-                    tabb[i].style.display = "block"
-                }
-
-            }
+            document.querySelector("#maingrid").style.display = "grid"
         })
     }
     document.querySelector("#rulesub").addEventListener("click", async function givit(event) {
@@ -154,9 +142,8 @@ window.addEventListener("DOMContentLoaded", async function la() {
     var tabb = document.querySelectorAll(".tabb")
     for (var i = 0; i < tabb.length; i++) {
         tabb[i].addEventListener("click", function tab(event) {
-            for (var i = 0; i < tabb.length; i++) {
-                tabb[i].style.display = "none"
-            }
+            document.querySelector("#maingrid").style.display = "none"
+
             var pseu = document.querySelectorAll(".pseupa")
             for (var i = 0; i < pseu.length; i++) {
                 pseu[i].style.display = "none"
