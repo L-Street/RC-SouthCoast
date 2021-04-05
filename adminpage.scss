@@ -33,10 +33,24 @@
 font-size:6vw;
 input {
     grid-area:inpu;
-    width:40vw;
+    width: 50vw;
+    text-align: center;
+    border-radius: 3vw;
+    font-size: 5vw;
 }
+
+}
+#compid {
+    width: 50vw;
+    text-align: center;
+    border-radius: 3vw;
+    font-size: 5vw;
+    margin-left: 25vw;
+    margin-top:2vh;
 }
 #maingrid {
+    overflow:hidden;
+    height:100vh;
     grid-template-columns: 1fr;
     grid-template-rows:1fr 1fr 1fr ;
     grid-template-areas: "newru"
@@ -57,7 +71,7 @@ input {
     background-color: #2CCF04;
 }
 .tabb {
-    height:33vh;
+    height:33.4vh;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -104,19 +118,19 @@ input {
     background-color: #000000;
 }
 .ruleoop {
-    margin-left:10vw;
-    width:80vw;
-    border-radius:3vw;
-    text-align:center;
+    margin-left: 10vw;
+    width: 80vw;
+    border-radius: 3vw;
+    text-align: center;
     background: #2CCF04;
-    color:black;
-    margin-top:2vh;
-    padding-top:0.5vh;
-    padding-bottom:0.5vh;
-    display:grid;
+    color: black;
+    margin-top: 2vh;
+    padding-top: 0.8vh;
+    padding-bottom: 0.8vh;
+    display: grid;
     grid-template-areas: "rulena rulein";
-    grid-template-rows:1fr ;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 .rulep {
 grid-area:rulena;
@@ -124,14 +138,47 @@ grid-area:rulena;
 .inpu {
     grid-area: rulein;
     width: 36vw;
-    border-radius: 2vw;
-    padding-left: 2vw;
-    border:none;
+    border-radius: 3vw;
+    border: none;
+    text-align: center;
 }
 .inpu:focus {
 border-radius: 2vw;
 } 
 #rulesub {
+    border-radius: 2vw;
+    margin-top: 2vh;
+    width: 20vw;
+    margin-left: 40vw;
+    padding-top: 0.3vh;
+    padding-bottom: 0.3vh;
+    background-color: #2CCF04;
+}
+#rulesel {
+    grid-area: inpu;
+    width: 50vw;
+    text-align: center;
+    border-radius: 3vw;
+    font-size: 5vw;
+    margin-left: 25vw;
+    margin-top: 2vh;
+    padding-left:2vw;
+    appearance: none;
+    option {
+        grid-area: inpu;
+    width: 50vw;
+    text-align: center;
+    border-radius: 3vw;
+    font-size: 5vw;
+    margin-left: 25vw;
+    margin-top: 2vh;
+    }
+}
+#newco {
+    background-color: #000000;
+    height:100vh;
+}
+#newcompsub {
     border-radius: 2vw;
     margin-top: 2vh;
     width: 20vw;

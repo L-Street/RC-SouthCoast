@@ -52,10 +52,24 @@
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: inpu;
-  width: 40vw;
+  width: 50vw;
+  text-align: center;
+  border-radius: 3vw;
+  font-size: 5vw;
+}
+
+#compid {
+  width: 50vw;
+  text-align: center;
+  border-radius: 3vw;
+  font-size: 5vw;
+  margin-left: 25vw;
+  margin-top: 2vh;
 }
 
 #maingrid {
+  overflow: hidden;
+  height: 100vh;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   -ms-grid-rows: 1fr 1fr 1fr;
@@ -86,7 +100,7 @@
 }
 
 .tabb {
-  height: 33vh;
+  height: 33.4vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -153,8 +167,8 @@
   background: #2CCF04;
   color: black;
   margin-top: 2vh;
-  padding-top: 0.5vh;
-  padding-bottom: 0.5vh;
+  padding-top: 0.8vh;
+  padding-bottom: 0.8vh;
   display: -ms-grid;
   display: grid;
       grid-template-areas: "rulena rulein";
@@ -175,9 +189,9 @@
   -ms-grid-column: 2;
   grid-area: rulein;
   width: 36vw;
-  border-radius: 2vw;
-  padding-left: 2vw;
+  border-radius: 3vw;
   border: none;
+  text-align: center;
 }
 
 .inpu:focus {
@@ -185,6 +199,49 @@
 }
 
 #rulesub {
+  border-radius: 2vw;
+  margin-top: 2vh;
+  width: 20vw;
+  margin-left: 40vw;
+  padding-top: 0.3vh;
+  padding-bottom: 0.3vh;
+  background-color: #2CCF04;
+}
+
+#rulesel {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: inpu;
+  width: 50vw;
+  text-align: center;
+  border-radius: 3vw;
+  font-size: 5vw;
+  margin-left: 25vw;
+  margin-top: 2vh;
+  padding-left: 2vw;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+#rulesel option {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: inpu;
+  width: 50vw;
+  text-align: center;
+  border-radius: 3vw;
+  font-size: 5vw;
+  margin-left: 25vw;
+  margin-top: 2vh;
+}
+
+#newco {
+  background-color: #000000;
+  height: 100vh;
+}
+
+#newcompsub {
   border-radius: 2vw;
   margin-top: 2vh;
   width: 20vw;
