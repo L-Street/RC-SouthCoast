@@ -61,23 +61,23 @@ window.addEventListener("DOMContentLoaded", async function la() {
                         db.collection("events").doc(event.target.id).update({
                             status: "closed"
                         })
-                        event.target.style.backgroundColor = "red"
+                        event.target.style.backgroundColor = "#EE251E"
                         event.target.innerText = "closed"
                     }
                     else {
                         db.collection("events").doc(event.target.id).update({
                             status: "open"
                         })
-                        event.target.style.backgroundColor = "green"
+                        event.target.style.backgroundColor = "#0F6200"
                         event.target.innerText = "open"
                     }
                 })
                 stat.classList.add("stat")
                 if (doc.data().status == "open") {
-                    stat.style.backgroundColor = "green"
+                    stat.style.backgroundColor = "#0F6200"
                 }
                 else {
-                    stat.style.backgroundColor = "red"
+                    stat.style.backgroundColor = "#EE251E"
                 }
                 big.appendChild(nim)
                 big.appendChild(stat)
@@ -153,6 +153,12 @@ window.addEventListener("DOMContentLoaded", async function la() {
 
 
     }
-
+    document.querySelector("#logout").addEventListener("click", function logout() {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
+    })
 
 })

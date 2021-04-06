@@ -163,7 +163,6 @@ border-radius: 2vw;
     margin-left: 25vw;
     margin-top: 2vh;
     padding-left:2vw;
-    appearance: none;
     option {
         grid-area: inpu;
     width: 50vw;
@@ -186,4 +185,46 @@ border-radius: 2vw;
     padding-top: 0.3vh;
     padding-bottom: 0.3vh;
     background-color: #2CCF04;
+}
+.big {
+    margin-top:2vh;
+    width:80vw;
+    margin-left:10vw;
+    border-radius:3vw;
+    padding-top:0.8vh;
+    padding-bottom:0.8vh;
+    background-color:#2CCF04;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "nim stat";
+}
+.nim {
+    grid-area:nim;
+    text-align: center;
+    padding-top: 0.3vh;
+    padding-bottom: 0.3vh;
+}
+.stat {
+    grid-area: stat;
+    text-align: center;
+    border-radius: 3vw;
+    margin-right: 3vw;
+    color: white;
+    padding-top: 0.3vh;
+    padding-bottom: 0.3vh;
+
+}
+#newcu {
+    height:100vh;
+    background-color:#000000;
+}
+#logout {
+    position: absolute;
+    background-color: #EE251E;
+    padding: 2vw;
+    height: 9vw;
+    border-radius: 40%;
+    top:91vh;
+    left:83vw;
 }

@@ -3,6 +3,14 @@
     border:0px;
     padding:0px;
 }
+#logpage {
+    background-color: black;
+    height:100vh;
+}
+#createpage {
+    background-color: black;
+    height:100vh;
+}
 #admin-box {
     display:grid;
     grid-template-rows:3fr 1fr 3fr 1fr 1fr;
@@ -15,7 +23,7 @@
     width:80vw;
     margin-left: 10vw;
     height: 50vh;
-    margin-top: 25vh;
+    padding-top: 25vh;
     margin-right:10vw;
 }
 #Emilp {
@@ -27,7 +35,8 @@
 #conform {
     grid-area:conf;
     color:white;
-    background-color:black;
+    background:#2CCF04;
+    border-radius: 5vw;
 }
 #create {
     color:white;
@@ -36,26 +45,34 @@
     width:40vw; 
     margin-left:30vw;
     margin-top:5vh;
+    border-radius:2vw;
 }
 #retrun {
     color:white;
     background-color:rgb(252, 96, 96);
     padding:1vw;
     width:40vw; 
+    border-radius:3vw;
     margin-left:30vw;
     margin-top:5vh;
 }
 #Emil {
-    width:78vw;
-    padding-left:1vw;
-    padding-right:1vw;
-    border-bottom:1px solid black;
+    width: 78vw;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    border-radius: 3vw;
+    border-bottom: 1px solid black;
 }
 #passowrd {
-    width:78vw;
-    padding-left:1vw;
-    padding-right:1vw;
-    border-bottom:1px solid black;
+    width: 78vw;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    border-radius: 3vw;
+    border-bottom: 1px solid black;
 }
 #details {
     display:grid;
@@ -73,42 +90,55 @@
     width:80vw;
     margin-left: 10vw;
     height: 50vh;
-    margin-top: 25vh;
+    padding-top: 25vh;
     margin-right:10vw;
 }
 #Fname {
 grid-area:fname;
-width:78vw;
-padding-left:1vw;
-padding-right:1vw;
-border-bottom:1px solid black;
+  width: 78vw;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    border-radius: 3vw;
+    border-bottom: 1px solid black;
 }
 #Sname{
 grid-area:sname;
-width:78vw;
-padding-left:1vw;
-padding-right:1vw;
-border-bottom:1px solid black;
+width: 78vw;
+padding-left: 2vw;
+padding-right: 1vw;
+padding-top: 1vw;
+padding-bottom: 1vw;
+border-radius: 3vw;
+border-bottom: 1px solid black;
 }
 #Cemail {
 grid-area:cemil;
-width:78vw;
-padding-left:1vw;
-padding-right:1vw;
-border-bottom:1px solid black;
+width: 78vw;
+padding-left: 2vw;
+padding-right: 1vw;
+padding-top: 1vw;
+padding-bottom: 1vw;
+border-radius: 3vw;
+border-bottom: 1px solid black;
 }
 #Cpass {
 grid-area:cpasso;
-width:78vw;
-padding-left:1vw;
-padding-right:1vw;
-border-bottom:1px solid black;
+width: 78vw;
+padding-left: 2vw;
+padding-right: 1vw;
+padding-top: 1vw;
+padding-bottom: 1vw;
+border-radius: 3vw;
+border-bottom: 1px solid black;
 }
 #DConform {
     grid-area:crat;
     color:white;
     background-color:brown;
     padding:1vw; 
+    border-radius:3vw;
 }
 input:focus {
     border:0px;

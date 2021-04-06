@@ -4,6 +4,16 @@
   padding: 0px;
 }
 
+#logpage {
+  background-color: black;
+  height: 100vh;
+}
+
+#createpage {
+  background-color: black;
+  height: 100vh;
+}
+
 #admin-box {
   display: -ms-grid;
   display: grid;
@@ -15,7 +25,7 @@
   width: 80vw;
   margin-left: 10vw;
   height: 50vh;
-  margin-top: 25vh;
+  padding-top: 25vh;
   margin-right: 10vw;
 }
 
@@ -38,7 +48,8 @@
   -ms-grid-column: 2;
   grid-area: conf;
   color: white;
-  background-color: black;
+  background: #2CCF04;
+  border-radius: 5vw;
 }
 
 #create {
@@ -48,6 +59,7 @@
   width: 40vw;
   margin-left: 30vw;
   margin-top: 5vh;
+  border-radius: 2vw;
 }
 
 #retrun {
@@ -55,21 +67,28 @@
   background-color: #fc6060;
   padding: 1vw;
   width: 40vw;
+  border-radius: 3vw;
   margin-left: 30vw;
   margin-top: 5vh;
 }
 
 #Emil {
   width: 78vw;
-  padding-left: 1vw;
+  padding-left: 2vw;
   padding-right: 1vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  border-radius: 3vw;
   border-bottom: 1px solid black;
 }
 
 #passowrd {
   width: 78vw;
-  padding-left: 1vw;
+  padding-left: 2vw;
   padding-right: 1vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  border-radius: 3vw;
   border-bottom: 1px solid black;
 }
 
@@ -84,7 +103,7 @@
   width: 80vw;
   margin-left: 10vw;
   height: 50vh;
-  margin-top: 25vh;
+  padding-top: 25vh;
   margin-right: 10vw;
 }
 
@@ -94,8 +113,11 @@
   -ms-grid-column-span: 3;
   grid-area: fname;
   width: 78vw;
-  padding-left: 1vw;
+  padding-left: 2vw;
   padding-right: 1vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  border-radius: 3vw;
   border-bottom: 1px solid black;
 }
 
@@ -105,8 +127,11 @@
   -ms-grid-column-span: 3;
   grid-area: sname;
   width: 78vw;
-  padding-left: 1vw;
+  padding-left: 2vw;
   padding-right: 1vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  border-radius: 3vw;
   border-bottom: 1px solid black;
 }
 
@@ -116,8 +141,11 @@
   -ms-grid-column-span: 3;
   grid-area: cemil;
   width: 78vw;
-  padding-left: 1vw;
+  padding-left: 2vw;
   padding-right: 1vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  border-radius: 3vw;
   border-bottom: 1px solid black;
 }
 
@@ -127,8 +155,11 @@
   -ms-grid-column-span: 3;
   grid-area: cpasso;
   width: 78vw;
-  padding-left: 1vw;
+  padding-left: 2vw;
   padding-right: 1vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  border-radius: 3vw;
   border-bottom: 1px solid black;
 }
 
@@ -139,6 +170,7 @@
   color: white;
   background-color: brown;
   padding: 1vw;
+  border-radius: 3vw;
 }
 
 input:focus {

@@ -6,10 +6,10 @@ document.querySelector("#admin-box").addEventListener("keyup", function (event) 
 });
 document.querySelector("#create").addEventListener("click", function () {
     document.querySelector("#logpage").style.display = "none"
-    document.querySelector("#createpage").style.display = "grid"
+    document.querySelector("#createpage").style.display = "block"
 })
 function switc() {
-    document.querySelector("#logpage").style.display = "grid"
+    document.querySelector("#logpage").style.display = "block"
     document.querySelector("#createpage").style.display = "none"
 }
 function login(e) {
