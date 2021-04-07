@@ -3,14 +3,20 @@
     border:0px;
     padding:0px;
 }
+body {
+    background:#2CCF04;
+}
 #dropper {
-    width:100vw;
-    height:5vw;
-    display:inline;
-    overflow-x:scroll;
-    background-color:brown;
+    text-align: center;
+    justify-content: center;
+    width: 100vw;
+    height: 5vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow-x: scroll;
     position: absolute;
-    top:0vh;
+    top: 0vh;
 }
 .taber {
 margin-top:13vw;
@@ -20,49 +26,60 @@ grid-template-rows:1fr;
 grid-template-areas:"nam scor";
 width:80vw;
 margin-left:10vw;
+background: black;
+border-radius: 5vw;
+padding-top:1vh;
+padding-bottom:1vh;
+padding-right:2vw;
+padding-left:2vw;
 }
 .nam {
     grid-area:nam;
     text-align:center;
     padding-top: 0.8vw;
     padding-bottom:0.8vw;
-   border:1px solid black;
+   border-radius:3vw;
+   color:white;
 }
 .scor {
     text-align:center;
-     padding-top: 0.8vw;
+    padding-top: 0.8vw;
     padding-bottom:0.8vw;
-    grid-area:scor;
-    border:1px solid black;
+   border-radius:3vw;
+   background: white;
 }
 #subdropper {
-    width:100vw;
-    height:5vw;
-    overflow-x:scroll;
-    background-color:rgb(218, 56, 56);
+    justify-content: center;
+    width: 100vw;
+    height: 5vw;
+    overflow-x: scroll;
     position: absolute;
-    top:5vw;
+    top: 5vw;
+    display: flex;
 }
 .sub {
-color:white;
-text-align:center;
-height:5vw;
-width:20vw;
-font-size:3vw;
-padding-left:2vw;
-padding-right:2vw;
-border-right:1px solid white;
-border-left:1px solid white;
+    text-align: center;
+    width: 20vw;
+    font-size: 3vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    padding-top: 0.5vw;
+    padding-bottom: 1.1vw;
+    background: white;
+    border-radius: 4vw;
+    margin-left: 2vw;
 }
 .subsub {
-    color:white;
-    display: inline-block;
-text-align:center;
-height:5vw;
-width:20vw;
-font-size:3vw;
-padding-left:2vw;
-padding-right:2vw;
-border-right:1px solid white;
-border-left:1px solid white;
+    color: white;
+    text-align: center;
+    width: 20vw;
+    font-size: 3vw;
+    margin-left: 2vw;
+    padding-top: 0.5vw;
+    padding-bottom: 1.1vw;
+    display: inline;
+    background: black;
+    border-radius: 4vw;
 }

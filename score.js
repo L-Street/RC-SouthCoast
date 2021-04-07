@@ -15,6 +15,10 @@ window.addEventListener("DOMContentLoaded", async function () {
 
 
                 ev.addEventListener("click", async function (event) {
+                    var slush = document.querySelectorAll(".subsub")
+                    for (i = 0; i < slush.length; i++) {
+                        slush[i].remove()
+                    }
                     var sus = document.querySelectorAll(".sub")
                     for (var i = 0; i < sus.length; i++) {
                         sus[i].classList.remove("chose")
@@ -64,7 +68,7 @@ window.addEventListener("DOMContentLoaded", async function () {
                                 subdropper.appendChild(subev)
                             })
                         })
-                    subdropper.style.display = "inline"
+                    subdropper.style.display = "flex"
 
 
                     await db

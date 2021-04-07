@@ -4,12 +4,21 @@
   padding: 0px;
 }
 
+body {
+  background: #2CCF04;
+}
+
 #dropper {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100vw;
   height: 5vw;
-  display: inline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   overflow-x: scroll;
-  background-color: brown;
   position: absolute;
   top: 0vh;
 }
@@ -25,6 +34,12 @@
       grid-template-areas: "nam scor";
   width: 80vw;
   margin-left: 10vw;
+  background: black;
+  border-radius: 5vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-right: 2vw;
+  padding-left: 2vw;
 }
 
 .nam {
@@ -34,50 +49,57 @@
   text-align: center;
   padding-top: 0.8vw;
   padding-bottom: 0.8vw;
-  border: 1px solid black;
+  border-radius: 3vw;
+  color: white;
 }
 
 .scor {
   text-align: center;
   padding-top: 0.8vw;
   padding-bottom: 0.8vw;
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: scor;
-  border: 1px solid black;
+  border-radius: 3vw;
+  background: white;
 }
 
 #subdropper {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100vw;
   height: 5vw;
   overflow-x: scroll;
-  background-color: #da3838;
   position: absolute;
   top: 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .sub {
-  color: white;
   text-align: center;
-  height: 5vw;
   width: 20vw;
   font-size: 3vw;
   padding-left: 2vw;
   padding-right: 2vw;
   border-right: 1px solid white;
   border-left: 1px solid white;
+  padding-top: 0.5vw;
+  padding-bottom: 1.1vw;
+  background: white;
+  border-radius: 4vw;
+  margin-left: 2vw;
 }
 
 .subsub {
   color: white;
-  display: inline-block;
   text-align: center;
-  height: 5vw;
   width: 20vw;
   font-size: 3vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  border-right: 1px solid white;
-  border-left: 1px solid white;
+  margin-left: 2vw;
+  padding-top: 0.5vw;
+  padding-bottom: 1.1vw;
+  display: inline;
+  background: black;
+  border-radius: 4vw;
 }
 /*# sourceMappingURL=score.css.map */

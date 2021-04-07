@@ -274,22 +274,27 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     document.querySelector("#final").addEventListener("click", async function () {
         var tpoints = 0
-        db
+        await db
             .collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores")
             .get()
             .then(async function (querySnapshot) {
                 querySnapshot.forEach(async function (doc) {
 
-
-                    db
+                    await db
                         .collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(doc.id).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
                             if (doc.exists) {
                                 tpoints += doc.data().score
+                                console.log(tpoints)
+                                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("totals").doc(custom.first + " " + custom.sur).set({
+                                    score: tpoints += parseInt(document.querySelector("#total").innerText)
+                                })
                             }
                         })
                 })
+
             })
         tpoints += parseInt(document.querySelector("#total").innerText)
+        console.log(tpoints)
 
         var list = document.querySelector("#comps")
         var dateObj = new Date();
@@ -304,13 +309,8 @@ window.addEventListener("DOMContentLoaded", function () {
                 window.alert("Score already recorded for this event + day")
             }
             else {
-                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("totals").doc(custom.first + " " + custom.sur).set({
-                    score: tpoints
-                })
-                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).set({
-                    date: date2,
-                    [custom.first + " " + custom.sur]: tpoints
-                })
+
+
                 db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
                     first: custom.first,
                     sur: custom.sur,
