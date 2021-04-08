@@ -18,55 +18,12 @@ firebase.auth().onAuthStateChanged(async function (user) {
 })
 var points = 0
 var scalemeasure = 0
-var rules = {
-    "SORRCA Lite rules": {
-        "Progress": "0",
-        "Reverse": "0",
-        "Gate-Marker": "10",
-        "Rollover": "5",
-        "Boundary-Marker": "5",
-        "Vehicle-Touch": "5",
-        "Course-Direction": "0",
-        "Self-Recovery": "1",
-        "Assisted-Recovery": "5",
-        "Point-out": "",
-        "Did-not-finish": "point out + 10",
-        "Did-not-start": "point out + 20"
-    },
-    "Official Scale Rock Crawling Rules": {
-        "Progress": "-2",
-        "Reverse": "1",
-        "Gate-Marker": "10",
-        "Rollover": "5",
-        "Boundary-Marker": "10",
-        "Vehicle-Touch": "10",
-        "Course-Direction": "10",
-        "Self-Recovery": "3",
-        "Assisted-Recovery": "10",
-        "Point-out": "80",
-        "Did-not-finish": "100",
-        "Did-not-start": "130"
-    },
-    "Custom": {
-        "Progress": "",
-        "Reverse": "",
-        "Gate-Marker": "",
-        "Rollover": "",
-        "Boundary-Marker": "",
-        "Vehicle-Touch": "",
-        "Course-Direction": "",
-        "Self-Recovery": "",
-        "Assisted-Recovery": "",
-        "Point-out": "",
-        "Did-not-finish": "",
-        "Did-not-start": ""
-    }
-}
+
 var baselin = ["Gates", "Progress"]
-var penalin = ["Reverse", "Gate-Marker", "Rollover", "Boundary-Marker", "Vehicle-Touch", "Course-Direction", "Self-Recovery", "Assisted-Recovery", "Point-out", "Did-not-finish", "Did-not-start"]
+var penalin = ["Reverse", "Gate-Marker", "Rollover", "Boundary-Marker", "Vehicle-Touch", "Course-Direction", "Self-Recovery", "Assisted-Recovery", "Point-Out", "Did-not-finish", "Did-not-start"]
 var valos = ["Progress", "Reverse", "Gate-Marker", "Rollover", "Boundary-Marker", "Vehicle-Touch", "Course-Direction", "Self-Recovery", "Assisted-Recovery"]
-window.addEventListener("DOMContentLoaded", function () {
-    db
+window.addEventListener("DOMContentLoaded", async function () {
+    await db
         .collection("events").where("status", "==", "open")
         .get()
         .then(async function (querySnapshot) {
@@ -74,7 +31,38 @@ window.addEventListener("DOMContentLoaded", function () {
                 var ev = document.createElement("option")
                 ev.value = doc.id
                 ev.innerText = doc.id
+
                 document.querySelector("#comps").appendChild(ev)
+            })
+
+            document.querySelector("#comps").addEventListener("change", function (event) {
+                db.collection("events").doc(comps.options[comps.selectedIndex].value).get().then((doc) => {
+                    if (doc.exists) {
+                        console.log(doc.data())
+                        document.querySelector("[value='" + doc.data().ruleset + "']").click()
+                    }
+                })
+            })
+            var te = document.createElement("option")
+            te.value = ""
+            te.innerText = ""
+            te.setAttribute("selected", "")
+            te.style.display = "none"
+            document.querySelector("#comps").appendChild(te)
+
+
+        })
+
+    await db.collection("rules")
+        .get()
+        .then(async function (querySnapshot) {
+            querySnapshot.forEach(async function (doc) {
+                var box = document.createElement("p")
+                box.classList.add("ruleset")
+                box.innerText = doc.id
+                box.setAttribute("value", doc.id)
+
+                document.querySelector("#pulldon").appendChild(box)
             })
         })
 
@@ -94,43 +82,48 @@ window.addEventListener("DOMContentLoaded", function () {
     var rulic = document.querySelectorAll(".ruleset")
     for (var i = 0; i < rulic.length; i++) {
         rulic[i].addEventListener("click", function rul(event) {
-            document.querySelector("#Gates").value = ""
-            document.querySelector("#Progress").value = rules[event.target.innerText]["Progress"]
-            for (var i = 0; i < penalin.length; i++) {
-                document.querySelector("#" + penalin[i]).value = rules[event.target.innerText][penalin[i]]
-            }
-            var score = 0
-            if (document.querySelector("#pout").checked === true) {
-                score = parseInt(document.querySelector("#Point-out").value)
-                points = score
-                console.log(score)
-                document.querySelector("#total").innerText = score += scalemeasure
-            }
-            else {
-                if (document.querySelector("#DNF").checked === true) {
-                    score = parseInt(document.querySelector("#Did-not-finish").value)
-                    points = score
-                    document.querySelector("#total").innerText = (score += scalemeasure)
-                }
-                else {
-                    if (document.querySelector("#DNS").checked === true) {
-                        score = parseInt(document.querySelector("#Did-not-start").value)
+            db.collection("rules").doc(event.target.innerText).get().then((doc) => {
+                if (doc.exists) {
+                    document.querySelector("#Gates").value = ""
+                    document.querySelector("#Progress").value = parseInt(doc.data().Progress)
+                    for (var i = 0; i < penalin.length; i++) {
+                        document.querySelector("#" + penalin[i]).value = parseInt(doc.data()[penalin[i]])
+                    }
+                    var score = 0
+                    if (document.querySelector("#pout").checked === true) {
+                        score = parseInt(document.querySelector("#Point-out").value)
                         points = score
-                        document.querySelector("#total").innerText = score
+                        console.log(score)
+                        document.querySelector("#total").innerText = score += scalemeasure
                     }
                     else {
-                        for (var i = 0; i < valos.length; i++) {
-                            var change = parseInt(document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value)
-                            score += change
+                        if (document.querySelector("#DNF").checked === true) {
+                            score = parseInt(document.querySelector("#Did-not-finish").value)
+                            points = score
+                            document.querySelector("#total").innerText = (score += scalemeasure)
                         }
+                        else {
+                            if (document.querySelector("#DNS").checked === true) {
+                                score = parseInt(document.querySelector("#Did-not-start").value)
+                                points = score
+                                document.querySelector("#total").innerText = score
+                            }
+                            else {
+                                for (var i = 0; i < valos.length; i++) {
+                                    var change = parseInt(document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value)
+                                    score += change
+                                }
 
-                        points = score
+                                points = score
 
-                        document.querySelector("#total").innerText = (score += scalemeasure)
+                                document.querySelector("#total").innerText = (score += scalemeasure)
+                            }
+                        }
                     }
                 }
-            }
+            })
         })
+
     }
     for (var i = 0; i < baselin.length; i++) {
         var pair = document.createElement("div")
