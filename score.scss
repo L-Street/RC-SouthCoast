@@ -3,6 +3,9 @@
     border:0px;
     padding:0px;
 }
+#scorescreen {
+    padding-top:9vw;
+}
 body {
     background:#2CCF04;
 }
@@ -19,7 +22,7 @@ body {
     top: 0vh;
 }
 .taber {
-margin-top:13vw;
+margin-top:8vw;
 display:grid;
 grid-template-columns:1fr 1fr;
 grid-template-rows:1fr;

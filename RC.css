@@ -31,6 +31,26 @@ body {
   margin: auto;
 }
 
+#rule {
+  background: black;
+  color: white;
+}
+
+#point {
+  color: white;
+  background: black;
+  overflow-y: scroll;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: fake;
+}
+
+#scale {
+  display: block;
+  background: black;
+  color: white;
+}
+
 #scaler {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
@@ -78,11 +98,11 @@ body {
 }
 
 .selcrule {
-  background-color: #3b91b6;
+  background-color: #2CCF04;
 }
 
 #pulldon {
-  background-color: #4BC0F2;
+  background-color: #2CCF04;
   -webkit-transition: top 0.8s;
   transition: top 0.8s;
   position: absolute;
@@ -115,19 +135,27 @@ body {
           transition-timing-function: ease-in-out;
   position: absolute;
   top: 0px;
-  background-color: #4BC0F2;
+  background-color: #2CCF04;
 }
 
 .pair {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5fr 1fr;
-      grid-template-columns: 5fr 1fr;
+  grid-template-columns: 5fr 1fr;
   -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template-rows: 1fr;
       grid-template-areas: "label valu";
   margin-left: 10vw;
   margin-right: 10vw;
+  margin-top: 0.5vh;
+  background: #2CCF04;
+  border-radius: 3vw;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  margin-bottom: 1.4vw;
 }
 
 .label {
@@ -142,7 +170,7 @@ body {
   -ms-grid-column: 2;
   grid-area: valu;
   text-align: center;
-  border-bottom: 1px solid black;
+  border-radius: 3vw;
 }
 
 .valu:focus {
@@ -166,6 +194,7 @@ body {
 
 #Scaleti {
   text-align: center;
+  font-size: 8vw;
 }
 
 #scalestat {
@@ -178,6 +207,7 @@ body {
   text-align: center;
   padding-top: 0.5vh;
   padding-bottom: 0.5vh;
+  margin-top: 2vh;
 }
 
 #clas {
@@ -188,9 +218,11 @@ body {
 }
 
 #clas select {
-  background-color: #d4d3d3;
   font-size: 3vw;
   width: 80vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  border-radius: 3vw;
 }
 
 #modi {
@@ -201,13 +233,19 @@ body {
 }
 
 #modi select {
-  background-color: #d4d3d3;
+  border-radius: 3vw;
   font-size: 3vw;
   width: 80vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
 }
 
 #plus {
-  height: 4vh;
+  height: 7vw;
+  margin: auto;
+  margin-left: 35vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
 }
 
 #resetscale {
@@ -226,13 +264,20 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5fr 1fr;
-      grid-template-columns: 5fr 1fr;
+  grid-template-columns: 5fr 1fr;
   -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template-rows: 1fr;
       grid-template-areas: "sumlab sumput";
   margin-left: 10vw;
   margin-right: 10vw;
   margin-top: 0.5vh;
+  background: #2CCF04;
+  border-radius: 3vw;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  margin-bottom: 1.4vw;
 }
 
 .sumlab {
@@ -244,7 +289,7 @@ body {
 .line {
   width: 35vw;
   text-align: center;
-  border-bottom: 1px solid black;
+  border-radius: 3vw;
 }
 
 .line:focus {
@@ -261,11 +306,13 @@ body {
   text-align: center;
   margin-left: 10vw;
   width: 80vw;
-  border: 2px solid black;
+  border: -radius;
   margin-top: 4vh;
-  padding-top: 4vh;
-  padding-bottom: 4vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   font-size: 9vw;
+  background: #2CCF04;
+  border-radius: 13vw;
   margin-bottom: 4vh;
 }
 
@@ -282,8 +329,8 @@ select:focus {
 #comps {
   margin-left: 25vw;
   width: 50vw;
-  background: burlywood;
   color: black;
+  border-radius: 2vw;
 }
 
 #final {
@@ -292,10 +339,17 @@ select:focus {
   margin-top: 2vh;
   padding: 2vw;
   color: white;
-  background: black;
+  background: #2CCF04;
+  border-radius: 5vw;
 }
 
-#loggers {
-  margin: auto;
+#logout {
+  position: absolute;
+  background-color: #EE251E;
+  padding: 2vw;
+  height: 9vw;
+  border-radius: 40%;
+  top: 85vh;
+  left: 83vw;
 }
 /*# sourceMappingURL=RC.css.map */

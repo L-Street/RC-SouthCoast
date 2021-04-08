@@ -21,6 +21,21 @@ body {
     margin-top:0.5vh;
     margin:auto;
 }
+#rule {
+    background: black;
+    color:white;
+}
+#point {
+    color: white;
+    background: black;
+    overflow-y: scroll;
+    grid-area: fake;
+}
+#scale {
+    display: block;
+    background: black;
+    color: white;
+}
 #scaler {
     grid-area:scale;
     height:4vh;
@@ -58,10 +73,10 @@ body {
     padding-right:0.5vw;
 }
 .selcrule {
-    background-color:#3b91b6;
+    background-color:#2CCF04;
 }
 #pulldon {
-    background-color: #4BC0F2;
+    background-color: #2CCF04;
     transition: top 0.8s;
     position:absolute;
     transition-timing-function: ease-in-out;
@@ -85,15 +100,26 @@ body {
     transition-timing-function: ease-in-out;
     position: absolute;
     top:0px;
-    background-color: #4BC0F2;
+    background-color: #2CCF04;
 }
 .pair {
-    display:grid;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 5fr 1fr;
     grid-template-columns: 5fr 1fr;
-    grid-template-rows:1fr;
+    -ms-grid-rows: 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas: "label valu";
     margin-left: 10vw;
-    margin-right:10vw;
+    margin-right: 10vw;
+    margin-top: 0.5vh;
+    background: #2CCF04;
+    border-radius: 3vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    margin-bottom: 1.4vw;
 }
 
 .label {
@@ -103,7 +129,7 @@ body {
     width: 35vw;
     grid-area: valu;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-radius: 3vw;;
 }
 .valu:focus {
     outline: 0px;
@@ -122,6 +148,7 @@ body {
 }
 #Scaleti {
     text-align: center;
+    font-size:8vw;
 }
 #scalestat {
     background-color:rgba(246, 14, 14,0.63);
@@ -133,6 +160,7 @@ body {
     text-align:center;
    padding-top:0.5vh;
 padding-bottom:0.5vh;
+margin-top: 2vh;
 }
 #clas {
     margin-left:10vw;
@@ -140,9 +168,11 @@ padding-bottom:0.5vh;
     width:80vw;
     margin-top:5vh;
     select {
-        background-color: rgb(212, 211, 211);
         font-size:3vw;
         width:80vw;
+        padding-top: 0.5vw;
+        padding-bottom: 0.5vw;
+        border-radius: 3vw;
         option {
         }
     }
@@ -153,15 +183,21 @@ padding-bottom:0.5vh;
     width:80vw;
     margin-top:5vh;
     select {
-        background-color: rgb(212, 211, 211);
+        border-radius: 3vw;
         font-size:3vw;
         width:80vw;
+        padding-top: 0.5vw;
+        padding-bottom: 0.5vw;
         option {
         }
     } 
 }
 #plus {
-    height:4vh;
+    height: 7vw;
+    margin: auto;
+    margin-left: 35vw;
+    margin-top: 1vw;
+    margin-bottom:1vw;
 }
 #resetscale {
         background-color:rgba(246, 14, 14,0.63);
@@ -175,13 +211,23 @@ padding-bottom:0.5vh;
     padding-bottom:0.5vh;
 }
 .sumpair {
-    display:grid;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 5fr 1fr;
     grid-template-columns: 5fr 1fr;
-    grid-template-rows:1fr;
+    -ms-grid-rows: 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas: "sumlab sumput";
     margin-left: 10vw;
-    margin-right:10vw;
-    margin-top:0.5vh;
+    margin-right: 10vw;
+    margin-top: 0.5vh;
+    background: #2CCF04;
+    border-radius: 3vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    margin-bottom: 1.4vw;
 }
 
 .sumlab {
@@ -190,7 +236,7 @@ padding-bottom:0.5vh;
 .line  {
     width: 35vw;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-radius: 3vw;
 }
 .line:focus {
     border-bottom: 1px solid black;
@@ -200,14 +246,16 @@ padding-bottom:0.5vh;
 }
 #total {
     text-align: center;
-    margin-left:10vw;
-    width:80vw;
-    border:2px solid black;
-    margin-top:4vh;
-    padding-top:4vh;
-    padding-bottom: 4vh;
-    font-size:9vw;
-    margin-bottom:4vh;
+    margin-left: 10vw;
+    width: 80vw;
+    border: -radius;
+    margin-top: 4vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-size: 9vw;
+    background: #2CCF04;
+    border-radius: 13vw;
+    margin-bottom: 4vh;
 }
 #info {
     text-align: center;
@@ -220,8 +268,8 @@ select:focus {
 #comps {
     margin-left: 25vw;
     width: 50vw;
-    background: burlywood;
     color: black;
+    border-radius: 2vw;
 }
 #final {
     display: block;
@@ -229,8 +277,16 @@ select:focus {
     margin-top: 2vh;
     padding: 2vw;
     color: white;
-    background: black;
+    background: #2CCF04;
+    border-radius: 5vw;
 }
-#loggers {
-    margin:auto;
+
+#logout {
+    position: absolute;
+    background-color: #EE251E;
+    padding: 2vw;
+    height: 9vw;
+    border-radius: 40%;
+    top:85vh;
+    left:83vw;
 }

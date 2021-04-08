@@ -181,13 +181,6 @@ window.addEventListener("DOMContentLoaded", function () {
         scal()
 
     })
-    document.querySelector("#loggers").addEventListener("click", function logout(event) {
-        firebase.auth().signOut().then(() => {
-            // Sign-out successful.
-        }).catch((error) => {
-            // An error happened.
-        });
-    })
     document.querySelector("#scalestat").addEventListener("click", function statuz(event) {
         if (document.querySelector("#scalestat").innerText === "OFF") {
             document.querySelector("#scalestat").innerText = "ON"
@@ -347,4 +340,11 @@ function scal() {
             document.querySelector("#total").innerText = (calc)
         }
     }
+    document.querySelector("#logout").addEventListener("click", function logout() {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
+    })
 }
