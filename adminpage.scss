@@ -2,6 +2,7 @@
     margin:0px;
     border:0px;
     padding:0px;
+    font-family: 'Poppins', sans-serif;
 }
 .ruleoop {
     display:grid;
@@ -59,12 +60,35 @@ input {
 }
 #newrui {
     grid-area:newru;
-    background-color: #2CCF04;
+}
+.newruimg {
+    width:100%;
+    height:100%;
 }
 #newcoi {
     grid-area:newco;
     background-color: #000000;
     color:#2CCF04;
+}
+.greenk {
+    background-color:rgba(44, 207, 4,0.6);
+    position:absolute;
+    color:white;
+    width:100%;
+    height:33.4vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.blackk {
+    background-color:rgba(35, 37, 34, 0.6);
+    position:absolute;
+    color:white;
+    width:100%;
+    height:33.4vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 #newcui {
     grid-area:newcu;
@@ -75,6 +99,7 @@ input {
     display:flex;
     justify-content: center;
     align-items: center;
+    font-size:6vw;
 }
 .mainba {
     width:100vw;
@@ -227,4 +252,5 @@ border-radius: 2vw;
     border-radius: 40%;
     top:91vh;
     left:83vw;
+    z-index:3;
 }

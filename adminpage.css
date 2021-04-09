@@ -2,6 +2,7 @@
   margin: 0px;
   border: 0px;
   padding: 0px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .ruleoop {
@@ -81,7 +82,11 @@
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: newru;
-  background-color: #2CCF04;
+}
+
+.newruimg {
+  width: 100%;
+  height: 100%;
 }
 
 #newcoi {
@@ -90,6 +95,40 @@
   grid-area: newco;
   background-color: #000000;
   color: #2CCF04;
+}
+
+.greenk {
+  background-color: rgba(44, 207, 4, 0.6);
+  position: absolute;
+  color: white;
+  width: 100%;
+  height: 33.4vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.blackk {
+  background-color: rgba(35, 37, 34, 0.6);
+  position: absolute;
+  color: white;
+  width: 100%;
+  height: 33.4vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #newcui {
@@ -110,6 +149,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 6vw;
 }
 
 .mainba {
@@ -299,5 +339,6 @@
   border-radius: 40%;
   top: 91vh;
   left: 83vw;
+  z-index: 3;
 }
 /*# sourceMappingURL=adminpage.css.map */

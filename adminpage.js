@@ -148,7 +148,7 @@ window.addEventListener("DOMContentLoaded", async function la() {
             for (var i = 0; i < pseu.length; i++) {
                 pseu[i].style.display = "none"
             }
-            document.querySelector("#" + event.target.getAttribute("name")).style.display = "block"
+            document.querySelector("#" + event.target.parentNode.getAttribute("name")).style.display = "block"
         })
 
 
