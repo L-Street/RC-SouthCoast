@@ -126,6 +126,8 @@ body {
 
 .label {
     grid-area:label;
+    font-size:4vw;
+    align-self:center;
 }
 .valu {
     width: 35vw;
@@ -236,6 +238,8 @@ border-radius: 4vw;
 
 .sumlab {
     grid-area:sumlab;
+    font-size:4vw;
+    align-self:center;
 }
 .line  {
     width: 35vw;
@@ -247,7 +251,7 @@ border-radius: 4vw;
 } 
 .sumput {
    grid-area: sumput;
-   margin-left:-7vw;
+
 }
 #total {
     text-align: center;
@@ -266,6 +270,7 @@ border-radius: 4vw;
     text-align: center;
     margin-left:5vw;
     margin-right:5vw;
+    font-size:5vw;
 }
 select:focus {
     outline:none;
@@ -289,9 +294,31 @@ select:focus {
 #logout {
     position: absolute;
     background-color: #EE251E;
-    padding: 2vw;
-    height: 9vw;
+    padding: 0.5rem;
+    height: 2rem;
     border-radius: 40%;
-    top:85vh;
-    left:83vw;
+    top: 85vh;
+    right: 0.5rem;
+}
+.box {
+    margin-left:-7vw;
+}
+#filler {
+    color: black;
+    width: 60vw;
+    margin: auto;
+    text-align: center;
+    background: white;
+    border-radius: 3vw;
+    height: 4vh;
+    margin-bottom:1vh;
+}
+#invis {
+    display: none;
+    color: black;
+    width: 70vw;
+    margin: auto;
+    text-align: center;
+    background: white;
+    border-radius: 3vw;
 }

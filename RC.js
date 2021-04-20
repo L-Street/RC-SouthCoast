@@ -28,43 +28,31 @@ window.addEventListener("DOMContentLoaded", async function () {
         .get()
         .then(async function (querySnapshot) {
             querySnapshot.forEach(async function (doc) {
-                var ev = document.createElement("option")
+                var ev = document.createElement("p")
                 ev.value = doc.id
+                ev.classList.add("cold")
                 ev.innerText = doc.id
+                ev.addEventListener("click", async function tab(event) {
+                    document.querySelector("#filler").innerText = event.target.innerText
+                    document.querySelector("#invis").style.display = "none"
+                    await db.collection("events").doc(event.target.innerText).get().then((doc) => {
 
-                document.querySelector("#comps").appendChild(ev)
-            })
-
-            document.querySelector("#comps").addEventListener("change", function (event) {
-                db.collection("events").doc(comps.options[comps.selectedIndex].value).get().then((doc) => {
-                    if (doc.exists) {
-                        console.log(doc.data())
-                        document.querySelector("[value='" + doc.data().ruleset + "']").click()
-                    }
+                        if (doc.exists) {
+                            document.querySelector("[value='" + doc.data().ruleset + "']").click()
+                        }
+                    })
                 })
+
+                document.querySelector("#invis").appendChild(ev)
             })
-            var te = document.createElement("option")
-            te.value = ""
-            te.innerText = ""
-            te.setAttribute("selected", "")
-            te.style.display = "none"
-            document.querySelector("#comps").appendChild(te)
+
+
+
 
 
         })
 
-    await db.collection("rules")
-        .get()
-        .then(async function (querySnapshot) {
-            querySnapshot.forEach(async function (doc) {
-                var box = document.createElement("p")
-                box.classList.add("ruleset")
-                box.innerText = doc.id
-                box.setAttribute("value", doc.id)
 
-                document.querySelector("#pulldon").appendChild(box)
-            })
-        })
 
     var changers = document.querySelectorAll(".swapper")
     for (var i = 0; i < changers.length; i++) {
@@ -260,27 +248,6 @@ window.addEventListener("DOMContentLoaded", async function () {
     }
     document.querySelector("#final").addEventListener("click", async function () {
         var tpoints = 0
-        await db
-            .collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores")
-            .get()
-            .then(async function (querySnapshot) {
-                querySnapshot.forEach(async function (doc) {
-
-                    await db
-                        .collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(doc.id).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
-                            if (doc.exists) {
-                                tpoints += doc.data().score
-                                console.log(tpoints)
-                                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("totals").doc(custom.first + " " + custom.sur).set({
-                                    score: tpoints += parseInt(document.querySelector("#total").innerText)
-                                })
-                            }
-                        })
-                })
-
-            })
-        tpoints += parseInt(document.querySelector("#total").innerText)
-        console.log(tpoints)
 
         var list = document.querySelector("#comps")
         var dateObj = new Date();
@@ -290,21 +257,46 @@ window.addEventListener("DOMContentLoaded", async function () {
 
         var date = day + "_" + month + "_" + year
         var date2 = day + "/" + month + "/" + year
-        await db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
+        await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).get().then(async (doc) => {
             if (doc.exists) {
                 window.alert("Score already recorded for this event + day")
             }
             else {
 
+                await db
+                    .collection("events").doc(document.querySelector("#filler").innerText).collection("scores")
+                    .get()
+                    .then(async function (querySnapshot) {
+                        querySnapshot.forEach(async function (doc) {
 
-                db.collection("events").doc(comps.options[comps.selectedIndex].value).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
+                            await db
+                                .collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(doc.id).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
+                                    if (doc.exists) {
+                                        tpoints += doc.data().score
+                                        console.log(tpoints)
+                                        db.collection("events").doc(document.querySelector("#filler").innerText).collection("totals").doc(custom.first + " " + custom.sur).set({
+                                            score: tpoints += parseInt(document.querySelector("#total").innerText)
+                                        })
+                                    }
+                                })
+                        })
+
+                    })
+                tpoints += parseInt(document.querySelector("#total").innerText)
+                console.log(tpoints)
+
+                await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).set({
+                    date: date2
+                })
+
+
+                await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
                     first: custom.first,
                     sur: custom.sur,
                     score: parseInt(document.querySelector("#total").innerText)
                 })
 
                 document.querySelector("#final").innerText = "Saved"
-
             }
         })
 
@@ -333,11 +325,16 @@ function scal() {
             document.querySelector("#total").innerText = (calc)
         }
     }
-    document.querySelector("#logout").addEventListener("click", function logout() {
-        firebase.auth().signOut().then(() => {
-            // Sign-out successful.
-        }).catch((error) => {
-            // An error happened.
-        });
-    })
+
 }
+document.querySelector("#logout").addEventListener("click", function logout() {
+    firebase.auth().signOut().then(() => {
+        window.location.replace("index.html")
+    }).catch((error) => {
+        // An error happened.
+    });
+})
+document.querySelector("#filler").addEventListener("click", function (event) {
+    document.querySelector("#invis").style.display = "block"
+})
+

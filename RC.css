@@ -164,6 +164,10 @@ body {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: label;
+  font-size: 4vw;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .valu {
@@ -288,6 +292,10 @@ body {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: sumlab;
+  font-size: 4vw;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .line {
@@ -304,7 +312,6 @@ body {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: sumput;
-  margin-left: -7vw;
 }
 
 #total {
@@ -325,6 +332,7 @@ body {
   text-align: center;
   margin-left: 5vw;
   margin-right: 5vw;
+  font-size: 5vw;
 }
 
 select:focus {
@@ -351,10 +359,35 @@ select:focus {
 #logout {
   position: absolute;
   background-color: #EE251E;
-  padding: 2vw;
-  height: 9vw;
+  padding: 0.5rem;
+  height: 2rem;
   border-radius: 40%;
   top: 85vh;
-  left: 83vw;
+  right: 0.5rem;
+}
+
+.box {
+  margin-left: -7vw;
+}
+
+#filler {
+  color: black;
+  width: 60vw;
+  margin: auto;
+  text-align: center;
+  background: white;
+  border-radius: 3vw;
+  height: 4vh;
+  margin-bottom: 1vh;
+}
+
+#invis {
+  display: none;
+  color: black;
+  width: 70vw;
+  margin: auto;
+  text-align: center;
+  background: white;
+  border-radius: 3vw;
 }
 /*# sourceMappingURL=RC.css.map */

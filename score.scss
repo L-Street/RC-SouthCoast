@@ -14,16 +14,16 @@ body {
     text-align: center;
     justify-content: center;
     width: 100vw;
-    height: 5vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     overflow-x: scroll;
+    overflow-y:hidden;
     position: absolute;
     top: 0vh;
 }
 .taber {
-margin-top:8vw;
+margin-top:8vh;
 display:grid;
 grid-template-columns:1fr 1fr;
 grid-template-rows:1fr;
@@ -55,15 +55,13 @@ padding-left:2vw;
 #subdropper {
     justify-content: center;
     width: 100vw;
-    height: 5vw;
+    padding-top:2vh;
     overflow-x: scroll;
     position: absolute;
     top: 5vw;
-    display: flex;
 }
 .sub {
     text-align: center;
-    width: 20vw;
     font-size: 3vw;
     padding-left: 2vw;
     padding-right: 2vw;
@@ -74,16 +72,61 @@ padding-left:2vw;
     background: white;
     border-radius: 4vw;
     margin-left: 2vw;
+    align-self:center;
 }
 .subsub {
     color: white;
     text-align: center;
-    width: 20vw;
     font-size: 3vw;
     margin-left: 2vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
     padding-top: 0.5vw;
     padding-bottom: 1.1vw;
     display: inline;
     background: black;
     border-radius: 4vw;
+    align-self: center;
+}
+#dropper::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  /* Track */
+  #dropper::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0); 
+  }
+   
+  /* Handle */
+  #dropper::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  #dropper::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  #subdropper::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  /* Track */
+  #subdropper::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0); 
+  }
+   
+  /* Handle */
+  #subdropper::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  #subdropper::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  #dropper:hover {
+      cursor: pointer;
+  }
+  #subdropper:hover {
+    cursor: pointer;
 }
