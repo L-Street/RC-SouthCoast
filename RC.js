@@ -247,59 +247,63 @@ window.addEventListener("DOMContentLoaded", async function () {
         })
     }
     document.querySelector("#final").addEventListener("click", async function () {
-        var tpoints = 0
+        if (document.querySelector("#filler").innerText == "Competition") {
+            document.querySelector("#final").style.backgroundColor = "red"
+        }
+        else {
+            var tpoints = 0
 
-        var list = document.querySelector("#comps")
-        var dateObj = new Date();
-        var month = dateObj.getUTCMonth() + 1;
-        var day = dateObj.getUTCDate();
-        var year = dateObj.getUTCFullYear();
+            var list = document.querySelector("#comps")
+            var dateObj = new Date();
+            var month = dateObj.getUTCMonth() + 1;
+            var day = dateObj.getUTCDate();
+            var year = dateObj.getUTCFullYear();
 
-        var date = day + "_" + month + "_" + year
-        var date2 = day + "/" + month + "/" + year
-        await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).get().then(async (doc) => {
-            if (doc.exists) {
-                window.alert("Score already recorded for this event + day")
-            }
-            else {
+            var date = day + "_" + month + "_" + year
+            var date2 = day + "/" + month + "/" + year
+            await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).get().then(async (doc) => {
+                if (doc.exists) {
+                    window.alert("Score already recorded for this event + day")
+                }
+                else {
 
-                await db
-                    .collection("events").doc(document.querySelector("#filler").innerText).collection("scores")
-                    .get()
-                    .then(async function (querySnapshot) {
-                        querySnapshot.forEach(async function (doc) {
+                    await db
+                        .collection("events").doc(document.querySelector("#filler").innerText).collection("scores")
+                        .get()
+                        .then(async function (querySnapshot) {
+                            querySnapshot.forEach(async function (doc) {
 
-                            await db
-                                .collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(doc.id).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
-                                    if (doc.exists) {
-                                        tpoints += doc.data().score
-                                        console.log(tpoints)
-                                        db.collection("events").doc(document.querySelector("#filler").innerText).collection("totals").doc(custom.first + " " + custom.sur).set({
-                                            score: tpoints += parseInt(document.querySelector("#total").innerText)
-                                        })
-                                    }
-                                })
+                                await db
+                                    .collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(doc.id).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
+                                        if (doc.exists) {
+                                            tpoints += doc.data().score
+                                            console.log(tpoints)
+                                            db.collection("events").doc(document.querySelector("#filler").innerText).collection("totals").doc(custom.first + " " + custom.sur).set({
+                                                score: tpoints += parseInt(document.querySelector("#total").innerText)
+                                            })
+                                        }
+                                    })
+                            })
+
                         })
+                    tpoints += parseInt(document.querySelector("#total").innerText)
+                    console.log(tpoints)
 
+                    await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).set({
+                        date: date2
                     })
-                tpoints += parseInt(document.querySelector("#total").innerText)
-                console.log(tpoints)
-
-                await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).set({
-                    date: date2
-                })
 
 
-                await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
-                    first: custom.first,
-                    sur: custom.sur,
-                    score: parseInt(document.querySelector("#total").innerText)
-                })
+                    await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
+                        first: custom.first,
+                        sur: custom.sur,
+                        score: parseInt(document.querySelector("#total").innerText)
+                    })
 
-                document.querySelector("#final").innerText = "Saved"
-            }
-        })
-
+                    document.querySelector("#final").innerText = "Saved"
+                }
+            })
+        }
     })
 })
 
