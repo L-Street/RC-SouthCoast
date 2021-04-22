@@ -334,11 +334,36 @@
 #logout {
   position: absolute;
   background-color: #EE251E;
-  padding: 2vw;
-  height: 9vw;
+  padding: 0.5rem;
+  height: 2rem;
   border-radius: 40%;
-  top: 91vh;
-  left: 83vw;
+  top: 90vh;
+  right: 0.5rem;
   z-index: 3;
+}
+
+#filler {
+  color: black;
+  width: 60vw;
+  margin: auto;
+  text-align: center;
+  background: white;
+  border-radius: 3vw;
+  height: 4vh;
+  margin-bottom: 1vh;
+}
+
+#invis {
+  display: none;
+  color: black;
+  width: 70vw;
+  margin: auto;
+  text-align: center;
+  background: white;
+  border-radius: 3vw;
+}
+
+#lister {
+  margin-bottom: 2vh;
 }
 /*# sourceMappingURL=adminpage.css.map */

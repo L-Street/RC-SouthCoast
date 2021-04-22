@@ -27,10 +27,14 @@ window.addEventListener("DOMContentLoaded", async function la() {
                 var name = document.createElement("p")
                 name.innerText = doc.id
                 name.classList.add("rulen")
-                var optin = document.createElement("option")
+                var optin = document.createElement("p")
                 optin.value = doc.id
                 optin.innerText = doc.id
-                document.querySelector("#rulesel").appendChild(optin)
+                optin.addEventListener("click", async function tab(event) {
+                    document.querySelector("#filler").innerText = event.target.innerText
+                    document.querySelector("#invis").style.display = "none"
+                })
+                document.querySelector("#invis").appendChild(optin)
 
                 box.appendChild(name)
                 document.querySelector("#newru").appendChild(box)
@@ -115,30 +119,28 @@ window.addEventListener("DOMContentLoaded", async function la() {
     })
 
     document.querySelector("#newcompsub").addEventListener("click", async function newcom(event) {
-        var rulex = document.querySelector("#rulesel")
-        console.log(document.querySelector("#compid").value.toLowerCase())
-        await db.collection("events").where("name", "==", document.querySelector("#compid").value.toLowerCase()).get()
-            .then((querySnapshot) => {
-                querySnapshot.forEach(async (doc) => {
-                    if (doc.exists) {
-                        window.alert("doc already exists")
+        if (document.querySelector("#filler").innerText == "Rules") {
+            document.querySelector("#newcompsub").style.backgroundColor = "red"
+        }
+        else {
+            var rulex = document.querySelector("#rulesel")
+            await db.collection("events").doc((document.querySelector("#compid").value)).get().then(async (doc) => {
+                if (doc.exists) {
+                    window.alert("doc already exists")
+                }
+                else {
+                    console.log(document.querySelector("#compid").value)
+                    await db.collection("events").doc(document.querySelector("#compid").value).set({
+                        name: document.querySelector("#compid").value.toLowerCase(),
+                        ruleset: document.querySelector("#filler").innerText,
+                        status: "open"
+                    })
+                    document.querySelector("#compid").value = ""
+                }
+            });
+        }
+    })
 
-                    }
-
-                    else {
-                        await db.collection("events").doc(document.querySelector("#compid").value).set({
-                            name: document.querySelector("#compid").value.toLowerCase(),
-                            ruleset: rulex.options[rulex.selectedIndex].value,
-                            status: "open"
-                        })
-                    }
-                });
-
-
-
-            })
-    }
-    )
     var tabb = document.querySelectorAll(".tabb")
     for (var i = 0; i < tabb.length; i++) {
         tabb[i].addEventListener("click", function tab(event) {
@@ -160,5 +162,7 @@ window.addEventListener("DOMContentLoaded", async function la() {
             // An error happened.
         });
     })
-
+    document.querySelector("#filler").addEventListener("click", function (event) {
+        document.querySelector("#invis").style.display = "block"
+    })
 })
