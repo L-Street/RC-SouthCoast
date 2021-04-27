@@ -18,14 +18,14 @@
 #admin-box {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 3fr 0.2fr 1fr 0.8fr 1fr 0.1fr 0.7fr 0.1fr 0.7fr;
-      grid-template-rows: 3fr 0.2fr 1fr 0.8fr 1fr 0.1fr 0.7fr 0.1fr 0.7fr;
+  -ms-grid-rows: 3fr 0.2fr 1fr 0.8fr 1fr 0.1fr 0.7fr 0.1fr 0.7fr 0.1fr 0.7fr;
+      grid-template-rows: 3fr 0.2fr 1fr 0.8fr 1fr 0.1fr 0.7fr 0.1fr 0.7fr 0.1fr 0.7fr;
   -ms-grid-columns: 1fr 2fr 1fr;
       grid-template-columns: 1fr 2fr 1fr;
-      grid-template-areas: ". rc ." ". . ." "emil emil emil" ". . ." "passo passo passo" ". . ." ". conf ." ". . ." ". create .";
+      grid-template-areas: ". rc ." ". . ." "emil emil emil" ". . ." "passo passo passo" ". . ." ". conf ." ". . ." ". create ." ". . ." ". reset .";
   width: 80vw;
   margin-left: 10vw;
-  padding-top: 1vh;
+  padding-top: 4.5vh;
   padding-bottom: 5vh;
   height: 90vh;
   margin-right: 10vw;
@@ -68,6 +68,19 @@
   -ms-grid-column: 2;
   grid-area: create;
   background-color: brown;
+  border-radius: 5vw;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#reset {
+  -ms-grid-row: 11;
+  -ms-grid-column: 2;
+  grid-area: reset;
+  background-color: palevioletred;
+  color: white;
   border-radius: 5vw;
   text-align: center;
   -ms-flex-item-align: center;
@@ -189,5 +202,53 @@
 input:focus {
   border: 0px;
   border-bottom: 1px solid black;
+}
+
+#resetpage {
+  background-color: black;
+  display: -ms-grid;
+  display: grid;
+  height: 30vh;
+  -ms-grid-rows: 1fr 0.5fr 1fr 0.5fr 1fr;
+  grid-template-rows: 1fr 0.5fr 1fr 0.5fr 1fr;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+      grid-template-areas: "email" "." "send" "." "return";
+  padding-left: 15vw;
+  padding-right: 15vw;
+  padding-top: 35vh;
+  padding-bottom: 35vh;
+}
+
+#resema {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: email;
+  border-radius: 5vw;
+  padding-left: 2vw;
+}
+
+#sendres {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: send;
+  background-color: #2CCF04;
+  border-radius: 5vw;
+  text-align: center;
+  font-size: 4vw;
+  color: white;
+}
+
+#resetreturn {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: return;
+  background-color: brown;
+  color: white;
+  border-radius: 5vw;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 /*# sourceMappingURL=login.css.map */

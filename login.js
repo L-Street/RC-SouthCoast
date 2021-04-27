@@ -12,6 +12,29 @@ function switc() {
     document.querySelector("#logpage").style.display = "block"
     document.querySelector("#createpage").style.display = "none"
 }
+document.querySelector("#reset").addEventListener("click", function () {
+    document.querySelector("#logpage").style.display = "none"
+    document.querySelector("#resetpage").style.display = "grid"
+})
+document.querySelector("#resetreturn").addEventListener("click", function () {
+    document.querySelector("#resetpage").style.display = "none"
+    document.querySelector("#logpage").style.display = "block"
+})
+document.querySelector("#sendres").addEventListener("click", function () {
+    var auth = firebase.auth();
+    var emailAddress = document.querySelector("#resema").value;
+
+    auth.sendPasswordResetEmail(emailAddress).then(function () {
+        document.querySelector("#sendres").style.backgroundColor = "green"
+        setTimeout(function () {
+            document.querySelector("#sendres").style.backgroundColor = "#2CCF04", document.querySelector("#resetpage").style.display = "none",
+            document.querySelector("#logpage").style.display = "block"
+        }, 1000);
+
+    }).catch(function (error) {
+        // An error happened.
+    });
+})
 function login(e) {
     firebase
         .auth()
