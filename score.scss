@@ -12,7 +12,6 @@ body {
 }
 #dropper {
     text-align: center;
-    justify-content: center;
     width: 100vw;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -53,7 +52,6 @@ padding-left:2vw;
    background: white;
 }
 #subdropper {
-    justify-content: center;
     width: 100vw;
     padding-top:2vh;
     overflow-x: scroll;
@@ -62,6 +60,7 @@ padding-left:2vw;
 }
 .sub {
     text-align: center;
+    margin:auto;
     font-size: 3vw;
     padding-left: 2vw;
     padding-right: 2vw;
@@ -71,14 +70,13 @@ padding-left:2vw;
     padding-bottom: 1.1vw;
     background: white;
     border-radius: 4vw;
-    margin-left: 2vw;
     align-self:center;
 }
 .subsub {
     color: white;
+    margin:auto;
     text-align: center;
     font-size: 3vw;
-    margin-left: 2vw;
     padding-left: 2vw;
     padding-right: 2vw;
     padding-top: 0.5vw;

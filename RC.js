@@ -38,9 +38,50 @@ window.addEventListener("DOMContentLoaded", async function () {
                     await db.collection("events").doc(event.target.innerText).get().then((doc) => {
 
                         if (doc.exists) {
-                            document.querySelector("[value='" + doc.data().ruleset + "']").click()
+                            db.collection("rules").doc(doc.data().ruleset).get().then((doc) => {
+                                if (doc.exists) {
+                                    document.querySelector("#Gates").value = ""
+                                    document.querySelector("#Progress").value = parseInt(doc.data().Progress)
+                                    for (var i = 0; i < penalin.length; i++) {
+                                        document.querySelector("#" + penalin[i]).value = parseInt(doc.data()[penalin[i]])
+                                    }
+                                    var score = 0
+                                    if (document.querySelector("#pout").checked === true) {
+                                        score = parseInt(document.querySelector("#Point-out").value)
+                                        points = score
+                                        console.log(score)
+                                        document.querySelector("#total").innerText = score += scalemeasure
+                                    }
+                                    else {
+                                        if (document.querySelector("#DNF").checked === true) {
+                                            score = parseInt(document.querySelector("#Did-not-finish").value)
+                                            points = score
+                                            document.querySelector("#total").innerText = (score += scalemeasure)
+                                        }
+                                        else {
+                                            if (document.querySelector("#DNS").checked === true) {
+                                                score = parseInt(document.querySelector("#Did-not-start").value)
+                                                points = score
+                                                document.querySelector("#total").innerText = score
+                                            }
+                                            else {
+                                                for (var i = 0; i < valos.length; i++) {
+                                                    var change = parseInt(document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value)
+                                                    score += change
+                                                }
+
+                                                points = score
+
+                                                document.querySelector("#total").innerText = (score += scalemeasure)
+                                            }
+                                        }
+                                    }
+                                }
+                            })
                         }
-                    })
+
+                    }
+                    )
                 })
 
                 document.querySelector("#invis").appendChild(ev)
@@ -70,48 +111,8 @@ window.addEventListener("DOMContentLoaded", async function () {
     var rulic = document.querySelectorAll(".ruleset")
     for (var i = 0; i < rulic.length; i++) {
         rulic[i].addEventListener("click", function rul(event) {
-            db.collection("rules").doc(event.target.innerText).get().then((doc) => {
-                if (doc.exists) {
-                    document.querySelector("#Gates").value = ""
-                    document.querySelector("#Progress").value = parseInt(doc.data().Progress)
-                    for (var i = 0; i < penalin.length; i++) {
-                        document.querySelector("#" + penalin[i]).value = parseInt(doc.data()[penalin[i]])
-                    }
-                    var score = 0
-                    if (document.querySelector("#pout").checked === true) {
-                        score = parseInt(document.querySelector("#Point-out").value)
-                        points = score
-                        console.log(score)
-                        document.querySelector("#total").innerText = score += scalemeasure
-                    }
-                    else {
-                        if (document.querySelector("#DNF").checked === true) {
-                            score = parseInt(document.querySelector("#Did-not-finish").value)
-                            points = score
-                            document.querySelector("#total").innerText = (score += scalemeasure)
-                        }
-                        else {
-                            if (document.querySelector("#DNS").checked === true) {
-                                score = parseInt(document.querySelector("#Did-not-start").value)
-                                points = score
-                                document.querySelector("#total").innerText = score
-                            }
-                            else {
-                                for (var i = 0; i < valos.length; i++) {
-                                    var change = parseInt(document.querySelector("#" + valos[i]).value * document.querySelector("#" + valos[i] + "t").value)
-                                    score += change
-                                }
 
-                                points = score
-
-                                document.querySelector("#total").innerText = (score += scalemeasure)
-                            }
-                        }
-                    }
-                }
-            })
         })
-
     }
     for (var i = 0; i < baselin.length; i++) {
         var pair = document.createElement("div")
@@ -278,29 +279,34 @@ window.addEventListener("DOMContentLoaded", async function () {
                                         if (doc.exists) {
                                             tpoints += doc.data().score
                                             console.log(tpoints)
-                                            db.collection("events").doc(document.querySelector("#filler").innerText).collection("totals").doc(custom.first + " " + custom.sur).set({
-                                                score: tpoints += parseInt(document.querySelector("#total").innerText)
-                                            })
+                                        }
+                                        else {
                                         }
                                     })
+
+
+
                             })
 
+                        }).then(async function () {
+                            await db.collection("events").doc(document.querySelector("#filler").innerText).collection("totals").doc(custom.first + " " + custom.sur).set({
+                                score: tpoints += parseInt(document.querySelector("#total").innerText)
+                            })
+
+                            await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).set({
+                                date: date2
+                            })
+
+
+                            await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
+                                first: custom.first,
+                                sur: custom.sur,
+                                score: parseInt(document.querySelector("#total").innerText)
+                            })
+
+                            document.querySelector("#final").innerText = "Saved"
                         })
-                    tpoints += parseInt(document.querySelector("#total").innerText)
-                    console.log(tpoints)
 
-                    await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).set({
-                        date: date2
-                    })
-
-
-                    await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).collection("points").doc(custom.first + "-" + custom.sur).set({
-                        first: custom.first,
-                        sur: custom.sur,
-                        score: parseInt(document.querySelector("#total").innerText)
-                    })
-
-                    document.querySelector("#final").innerText = "Saved"
                 }
             })
         }

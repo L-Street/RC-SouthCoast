@@ -15,9 +15,6 @@ body {
 
 #dropper {
   text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -67,9 +64,6 @@ body {
 }
 
 #subdropper {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   width: 100vw;
   padding-top: 2vh;
   overflow-x: scroll;
@@ -79,6 +73,7 @@ body {
 
 .sub {
   text-align: center;
+  margin: auto;
   font-size: 3vw;
   padding-left: 2vw;
   padding-right: 2vw;
@@ -88,7 +83,6 @@ body {
   padding-bottom: 1.1vw;
   background: white;
   border-radius: 4vw;
-  margin-left: 2vw;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -96,9 +90,9 @@ body {
 
 .subsub {
   color: white;
+  margin: auto;
   text-align: center;
   font-size: 3vw;
-  margin-left: 2vw;
   padding-left: 2vw;
   padding-right: 2vw;
   padding-top: 0.5vw;
