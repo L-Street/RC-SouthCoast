@@ -272,7 +272,7 @@ window.addEventListener("DOMContentLoaded", async function () {
                         .collection("events").doc(document.querySelector("#filler").innerText).collection("scores")
                         .get()
                         .then(async function (querySnapshot) {
-                            querySnapshot.forEach(async function (doc) {
+                            await querySnapshot.forEach(async function (doc) {
 
                                 await db
                                     .collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(doc.id).collection("points").doc(custom.first + "-" + custom.sur).get().then((doc) => {
@@ -282,16 +282,16 @@ window.addEventListener("DOMContentLoaded", async function () {
                                         }
                                         else {
                                         }
+
                                     })
 
 
-
                             })
+
 
                         }).then(async function () {
-                            await db.collection("events").doc(document.querySelector("#filler").innerText).collection("totals").doc(custom.first + " " + custom.sur).set({
-                                score: tpoints += parseInt(document.querySelector("#total").innerText)
-                            })
+
+
 
                             await db.collection("events").doc(document.querySelector("#filler").innerText).collection("scores").doc(date).set({
                                 date: date2
@@ -306,7 +306,9 @@ window.addEventListener("DOMContentLoaded", async function () {
 
                             document.querySelector("#final").innerText = "Saved"
                         })
-
+                    await db.collection("events").doc(document.querySelector("#filler").innerText).collection("totals").doc(custom.first + " " + custom.sur).set({
+                        score: tpoints += parseInt(document.querySelector("#total").innerText)
+                    })
                 }
             })
         }
